@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Rotates a "Gunner" Actor to follow the aim direction of the Targeting Camera.
+ */
 public class GunnerRotation : MonoBehaviour {
 
-    public float rotationSpeed = 1.0f;
+    public float rotationSpeed = 10.0f;
     public CameraAim targetingCamera;
 
 	// Use this for initialization

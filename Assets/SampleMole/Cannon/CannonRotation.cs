@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Orients a Weapon to point at a targeting camera's point-of-aim.
+ */
 public class CannonRotation : MonoBehaviour {
 
     public CameraAim targetingCamera;

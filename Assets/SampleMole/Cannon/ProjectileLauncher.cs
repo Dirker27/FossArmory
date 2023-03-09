@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Spawns a Projectile at the current location and orientation of the hosting Actor
+ *  when input is given.
+ */
 public class ProjectileLauncher : MonoBehaviour {
 
     public GameObject projectileTemplate;

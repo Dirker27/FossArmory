@@ -826,7 +826,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -1056,7 +1056,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 319339731}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.011000007, y: 0.41900003, z: 0.8000001}
+  m_LocalPosition: {x: 0.39, y: 0.41900003, z: 0.8000001}
   m_LocalScale: {x: 0.80555004, y: 0.80555004, z: 0.80555}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1788,16 +1788,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 7.07
       objectReference: {fileID: 0}
     - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4
+      value: -7.65
       objectReference: {fileID: 0}
     - target: {fileID: 411804, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1827,13 +1839,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5403398, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_Mass
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403398, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403398, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5403398, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 11478726, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
       propertyPath: duration
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11478726, guid: 06cc54d04b29b884694d5d97c50270ab, type: 3}
       propertyPath: launchForce
-      value: 100
+      value: 100000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2335,7 +2363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.583, y: 1.006, z: -1.057}
+  m_LocalPosition: {x: 0.639, y: 1.224, z: -0.967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3260,8 +3288,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367446966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.06, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.4, z: 0.5}
+  m_LocalPosition: {x: 0, y: 1.06, z: 0.048}
+  m_LocalScale: {x: 0.4, y: 0.3, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 177223381}
@@ -3553,8 +3581,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 111437740}
   - {fileID: 2093766049}
+  - {fileID: 111437740}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
