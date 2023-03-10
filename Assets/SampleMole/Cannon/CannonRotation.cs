@@ -10,9 +10,12 @@ public class CannonRotation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Ray target = targetingCamera.GetAimingRay();
-        Quaternion q = Quaternion.LookRotation(target.direction, transform.up);
+        if (targetingCamera)
+        {
+            Ray target = targetingCamera.GetAimingRay();
+            Quaternion q = Quaternion.LookRotation(target.direction, transform.up);
 
-        transform.rotation = q;
+            transform.rotation = q;
+        }
 	}
 }

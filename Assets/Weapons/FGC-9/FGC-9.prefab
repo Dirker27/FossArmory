@@ -130,7 +130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e3d28555f3d01ae40881628bb3aa7d01, type: 2}
+  - {fileID: 2100000, guid: bd0c43ffc2a859446857a840d191231f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -213,7 +213,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e826d25e53173bb448c0e2e026ce8afe, type: 2}
+  - {fileID: 2100000, guid: bd0c43ffc2a859446857a840d191231f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -430,11 +430,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ff20091982201644a98d74e56ebf035, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.664
+      value: 0.665
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ff20091982201644a98d74e56ebf035, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.043
+      value: 1.845
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0ff20091982201644a98d74e56ebf035, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1113,7 +1113,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ce63914ef7033a4f94562b9933d389e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.05
+      value: -0.11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ce63914ef7033a4f94562b9933d389e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1121,7 +1121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ce63914ef7033a4f94562b9933d389e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.203
+      value: 0.385
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8ce63914ef7033a4f94562b9933d389e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1154,7 +1154,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8ce63914ef7033a4f94562b9933d389e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e3d28555f3d01ae40881628bb3aa7d01, type: 2}
+      objectReference: {fileID: 2100000, guid: bd0c43ffc2a859446857a840d191231f, type: 2}
     - target: {fileID: 919132149155446097, guid: 8ce63914ef7033a4f94562b9933d389e, type: 3}
       propertyPath: m_Name
       value: Bolt Carrier
@@ -1242,7 +1242,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: f2b19cbbcf5bbcc4fb975edcd53076f6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e3d28555f3d01ae40881628bb3aa7d01, type: 2}
+      objectReference: {fileID: 2100000, guid: e826d25e53173bb448c0e2e026ce8afe, type: 2}
     - target: {fileID: 919132149155446097, guid: f2b19cbbcf5bbcc4fb975edcd53076f6, type: 3}
       propertyPath: m_Name
       value: Ejector
@@ -1447,7 +1447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27211e1eb0172794788eb449f5da204e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.911
+      value: -0.97
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 27211e1eb0172794788eb449f5da204e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1488,7 +1488,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 27211e1eb0172794788eb449f5da204e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e826d25e53173bb448c0e2e026ce8afe, type: 2}
+      objectReference: {fileID: 2100000, guid: cff642be8060f33449a172dd45506016, type: 2}
     - target: {fileID: 919132149155446097, guid: 27211e1eb0172794788eb449f5da204e, type: 3}
       propertyPath: m_Name
       value: Charging Handle
@@ -1570,7 +1570,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 2b62b25b05f500a48bdbd66f2f88c4af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e3d28555f3d01ae40881628bb3aa7d01, type: 2}
+      objectReference: {fileID: 2100000, guid: cff642be8060f33449a172dd45506016, type: 2}
     - target: {fileID: 919132149155446097, guid: 2b62b25b05f500a48bdbd66f2f88c4af, type: 3}
       propertyPath: m_Name
       value: Barrel Retainer

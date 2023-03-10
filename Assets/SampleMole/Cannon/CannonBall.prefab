@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 13557700}
   - component: {fileID: 2391508}
   - component: {fileID: 5403398}
-  - component: {fileID: 11478726}
   m_Layer: 0
   m_Name: CannonBall
   m_TagString: Untagged
@@ -85,7 +84,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3bf8519fab53f8249a3fc589f9a2bed7, type: 2}
+  - {fileID: 2100000, guid: f69ddc2e19d286844863c0036aca1fdb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -134,17 +133,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11478726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e9b3c48f39db274bbdba186c0b09f04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchForce: 25
-  duration: 10
