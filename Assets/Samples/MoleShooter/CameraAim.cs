@@ -6,12 +6,12 @@ using System.Collections;
  */
 public class CameraAim : MonoBehaviour {
 
-    private Camera camera;
+    private Camera cam;
 
 	void Start()
     {
-        camera = GetComponent<Camera>();
-        if (camera == null) {
+        cam = GetComponent<Camera>();
+        if (cam == null) {
             Debug.LogError("No Camera Set! Will not be able to aim.");
         }
 	}
@@ -21,6 +21,6 @@ public class CameraAim : MonoBehaviour {
      */
     public Ray GetAimingRay()
     {
-        return camera.ScreenPointToRay(Input.mousePosition);
+        return cam.ScreenPointToRay(Input.mousePosition);
     }
 }

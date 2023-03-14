@@ -54,9 +54,6 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("IMPACT: " 
-            + GetKineticEnergyJoules() + "[J] | "
-            + rb.velocity + "[m/s], "
-            + rb.mass + "[kg]");
+        GameObject.Destroy(this.gameObject);
     }
 }

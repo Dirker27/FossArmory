@@ -23,7 +23,6 @@ public class Destructible : MonoBehaviour
 
     private bool hasDestructed = false;
 
-
     /**
      * START
      */
@@ -43,7 +42,12 @@ public class Destructible : MonoBehaviour
         if (!physicsEnabled) { return; }
 
         if (collision.rigidbody) {
-            ApplyEnergyJoules(GetKineticEnergyJoules(collision.rigidbody));
+            float impactEnergy = GetKineticEnergyJoules(collision.rigidbody);
+            Debug.Log("IMPACT: "
+                + impactEnergy + "[J] | "
+                + collision.rigidbody.velocity + "[m/s], "
+                + collision.rigidbody.mass + "[kg]");
+            ApplyEnergyJoules(impactEnergy);
         }
     }
 

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TimeToLive : MonoBehaviour
 {
-    public float durationMilliseconds = 1000;
+    public float durationSeconds = 10;
 
-    public float timeAlive = 0f;
+    private float timeAlive = 0f;
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class TimeToLive : MonoBehaviour
     {
         timeAlive += Time.deltaTime;
 
-        if (timeAlive > durationMilliseconds)
+        if (timeAlive > durationSeconds)
         {
             GameObject.Destroy(this.gameObject);
         }
