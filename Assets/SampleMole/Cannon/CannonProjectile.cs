@@ -6,7 +6,7 @@ using System.Collections;
  * 
  * Will Self-destruct once TTL duration is reached.
  */
-public class Projectile : MonoBehaviour {
+public class CannonProjectile : MonoBehaviour {
 
     public float launchForce = 10.0f;
     public float duration = 10.0f; // TTL
