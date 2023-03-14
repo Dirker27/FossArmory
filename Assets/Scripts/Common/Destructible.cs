@@ -7,6 +7,7 @@ using UnityEngine;
 public class Destructible : MonoBehaviour
 {
     public List<GameObject> debrisTemplate = new List<GameObject>();
+    public Transform debrisParent;
     public float destructionForce = 1f; // Newtons [N]
 
     // minimum energy to receive damage
@@ -67,7 +68,7 @@ public class Destructible : MonoBehaviour
         foreach (GameObject go in debrisTemplate)
         {
             GameObject debris = GameObject.Instantiate(go, transform);
-            debris.transform.parent = null;
+            debris.transform.parent = debrisParent;
             
             Rigidbody rb = debris.GetComponent<Rigidbody>();
             if (rb)
