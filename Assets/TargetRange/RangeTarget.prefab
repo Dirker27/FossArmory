@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 423463951237462961}
   - component: {fileID: 2085989144824098515}
   - component: {fileID: 5594576864454396631}
+  - component: {fileID: -6075852173898506836}
   m_Layer: 0
   m_Name: RangeTarget
   m_TagString: Untagged
@@ -151,8 +152,22 @@ MonoBehaviour:
   - {fileID: 1737480196076347677, guid: 5fe11bc8e4d996c48a72b0246b9f60c9, type: 3}
   - {fileID: 1737480196076347677, guid: 5fe11bc8e4d996c48a72b0246b9f60c9, type: 3}
   - {fileID: 1737480196076347677, guid: 5fe11bc8e4d996c48a72b0246b9f60c9, type: 3}
+  debrisParent: {fileID: 0}
   destructionForce: 10
   minimumDestructionThreshold: 0
-  totalDestructionEnergy: 1
+  totalDestructionEnergy: 200
   lifetimeEnergyAbsorbed: 0
   physicsEnabled: 1
+--- !u!114 &-6075852173898506836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2388530221098957763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248ff07b8779f734889ac353566a3094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileDamageTemplate: {fileID: 1737480196076347677, guid: 0c0755136a4990d4fadf52fc5fae50f0, type: 3}
