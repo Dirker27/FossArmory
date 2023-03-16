@@ -154,8 +154,8 @@ MonoBehaviour:
   - {fileID: 1737480196076347677, guid: 5fe11bc8e4d996c48a72b0246b9f60c9, type: 3}
   debrisParent: {fileID: 0}
   destructionForce: 10
-  minimumDestructionThreshold: 0
-  totalDestructionEnergy: 200
+  minimumDestructionThreshold: 50
+  totalDestructionEnergy: 100
   lifetimeEnergyAbsorbed: 0
   physicsEnabled: 1
 --- !u!114 &-6075852173898506836
