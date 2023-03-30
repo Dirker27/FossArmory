@@ -13,9 +13,9 @@ public class Mountable : MonoBehaviour
 
     private void Start()
     {
-        if (captureOffsetOnStart)
+        if (captureOffsetOnStart && mountTarget)
         {
-            mountOffset = transform.localPosition;
+            mountOffset = transform.position - mountTarget.transform.position;
         }
     }
 

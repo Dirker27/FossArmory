@@ -344,8 +344,9 @@ GameObject:
   - component: {fileID: 5129005160931018199}
   - component: {fileID: 8427630864161597894}
   - component: {fileID: 4388069054356990264}
+  - component: {fileID: 7005335725642289226}
   m_Layer: 0
-  m_Name: Mount Point
+  m_Name: Mount Point - Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -437,6 +438,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7005335725642289226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165247775713081598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1212046893115895055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,6 +1071,7 @@ GameObject:
   - component: {fileID: 8772589195517746940}
   - component: {fileID: 2133775287365581005}
   - component: {fileID: 1955038102979098989}
+  - component: {fileID: 1510646692538343937}
   m_Layer: 0
   m_Name: Mount Point - Optics
   m_TagString: Untagged
@@ -1151,6 +1165,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1510646692538343937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985800315122802018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4860170786234569553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2350,6 +2376,7 @@ GameObject:
   - component: {fileID: 7904432632914718388}
   - component: {fileID: 1691023502145172658}
   - component: {fileID: 901023161819925088}
+  - component: {fileID: 2245453035368341836}
   m_Layer: 0
   m_Name: Mount Point - Underbarrel
   m_TagString: Untagged
@@ -2443,3 +2470,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2245453035368341836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062796774506480536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

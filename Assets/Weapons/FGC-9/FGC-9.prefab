@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 3925289590928252619}
   - component: {fileID: 3733171048277605572}
   m_Layer: 0
-  m_Name: Mount Point
+  m_Name: Mount Point - Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
