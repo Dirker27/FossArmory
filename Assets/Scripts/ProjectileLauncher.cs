@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProjectileLauncher : MonoBehaviour
+public class ProjectileLauncher : Weapon
 {
-    public CameraAim targetingCamera;
     public Projectile projectileTemplate;
 
     public Transform launchPoint;
@@ -21,32 +20,17 @@ public class ProjectileLauncher : MonoBehaviour
         {
             launchPoint = transform;
         }
-
-        if (!targetingCamera)
-        {
-            Debug.LogError("MISSING REQUIRED COMPONENT: Targeting Camera");
-        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Fire()
     {
-        // Fire when Ready
-        // TODO: Use a common input management component
-        if (Input.GetMouseButtonDown(0))
-        {
-            Launch();
-        }
-    }
-
-    public void Launch()
-    {
-        // Launch at Target
-        Ray aimRay = targetingCamera.GetAimingRay();
-        Quaternion q = Quaternion.LookRotation(aimRay.direction, transform.up);
-
-        Projectile projectile = GameObject.Instantiate(projectileTemplate, transform.position, q);
+        Projectile projectile = GameObject.Instantiate(projectileTemplate, launchPoint.position, transform.rotation);
         projectile.transform.parent = projectileParent;
+
+        if (cycleAnimation)
+        {
+            cycleAnimation.Play();
+        }
 
         /*Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb)
@@ -55,7 +39,5 @@ public class ProjectileLauncher : MonoBehaviour
             Vector3 forceVector = transform.forward * launchForce;
             rb.AddForce(forceVector, ForceMode.Impulse);
         }*/
-
-        Debug.DrawRay(aimRay.origin, (aimRay.direction) * 5, Color.green, 0.5f);
     }
 }

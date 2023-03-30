@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Operator : MonoBehaviour
 {
+    public Weapon primaryWeapon;
+    public Weapon secondaryWeapon;
     // Start is called before the first frame update
     void Start()
     {

@@ -19,6 +19,7 @@ public class Destructible : MonoBehaviour
     // total energy received over lifetime
     public float lifetimeEnergyAbsorbed = 0f; // Joules [J]
 
+    // whether we want to receive damage from the world's physics system
     public bool physicsEnabled = true;
 
     private bool hasDestructed = false;
