@@ -20,13 +20,18 @@ public class VisibleDamage : MonoBehaviour
         
     }
 
+    public void ApplyProjectileDamage(Collision collision)
+    {
+        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
+        damageTile.transform.parent = null;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile)
         {
-            GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
-            damageTile.transform.parent = null;
+            ApplyProjectileDamage(collision);
         }
     }
 }

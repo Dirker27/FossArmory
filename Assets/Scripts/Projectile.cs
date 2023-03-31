@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private Rigidbody rb;
+    public GameObject projectileDamageTemplate;
 
     public bool useLaunchVelocity = true;
     public float initialVelocity = 1f; // Meters / Second [m/s]
@@ -18,11 +19,6 @@ public class Projectile : MonoBehaviour
         {
             Debug.LogError("Missing Required Component: Rigidbody");
         }
-    }
-
-    void Update()
-    {
-        Debug.DrawRay(transform.position, transform.forward, Color.cyan);
     }
 
     // Called on fixed interval - use for physics
@@ -54,6 +50,14 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject.Destroy(this.gameObject);
+        VisibleDamage vd = collision.gameObject.GetComponent<VisibleDamage>();
+        if (vd)
+        {
+            vd.ApplyProjectileDamage(collision);
+        }
+
+        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
+        damageTile.transform.parent = null;
+        //GameObject.Destroy(this.gameObject);
     }
 }
