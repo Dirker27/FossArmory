@@ -54,10 +54,13 @@ public class Projectile : MonoBehaviour
         if (vd)
         {
             vd.ApplyProjectileDamage(collision);
+            return;
         }
 
-        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
-        damageTile.transform.parent = null;
+        //GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
+        //damageTile.transform.parent = null;
+        
+        
         //GameObject.Destroy(this.gameObject);
     }
 }
