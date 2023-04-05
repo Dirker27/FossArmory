@@ -1103,6 +1103,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120560037}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &155056728
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1936341463}
+    m_Modifications:
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.539575
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.557
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.765
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227065219846162359, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+      propertyPath: m_Name
+      value: FGC-9mk2_Model
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
 --- !u!1001 &164533970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2088,17 +2149,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1386286768868041009, guid: c7cd3d23b2a54894b9548a9909f6e98f, type: 3}
   m_PrefabInstance: {fileID: 360974154}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &375326399 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5845729703687755020, guid: 5132a73b12a28af4ab3260ebbcb56b7a, type: 3}
-  m_PrefabInstance: {fileID: 3026885801909877215}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &378528472
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,6 +2800,11 @@ MonoBehaviour:
   mountTarget: {fileID: 0}
   mountOffset: {x: 0, y: 0, z: 0}
   captureOffsetOnStart: 0
+--- !u!4 &539215596 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3839684009176262651, guid: 37d7367954a598746b59a8af117b0d07, type: 3}
+  m_PrefabInstance: {fileID: 155056728}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &552105073
 GameObject:
   m_ObjectHideFlags: 0
@@ -4611,7 +4666,6 @@ GameObject:
   - component: {fileID: 820225278}
   - component: {fileID: 820225282}
   - component: {fileID: 820225281}
-  - component: {fileID: 820225280}
   - component: {fileID: 820225279}
   m_Layer: 0
   m_Name: MountPoint-PrimaryWeapon
@@ -4647,27 +4701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &820225280
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 820225277}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &820225281
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5581,7 +5614,6 @@ GameObject:
   - component: {fileID: 984241284}
   - component: {fileID: 984241288}
   - component: {fileID: 984241287}
-  - component: {fileID: 984241286}
   - component: {fileID: 984241285}
   m_Layer: 0
   m_Name: MountPoint-SecondaryWeapon
@@ -5617,27 +5649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &984241286
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984241283}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &984241287
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9425,7 +9436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770b38fe73c15b243a0680ef6fcf2fdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mountTarget: {fileID: 375326399}
+  mountTarget: {fileID: 0}
   mountOffset: {x: 0, y: 0, z: 0}
   captureOffsetOnStart: 0
 --- !u!1001 &1740605495
@@ -10852,6 +10863,7 @@ Transform:
   - {fileID: 1349788101}
   - {fileID: 1137152651}
   - {fileID: 391957607}
+  - {fileID: 539215596}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
