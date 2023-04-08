@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementController : MonoBehaviour
+public class PlayerMovementController : MonoBehaviour
 {
     public float walkSpeed = 3f;
     public float runSpeed = 10f;
@@ -10,30 +10,22 @@ public class MovementController : MonoBehaviour
     public float jumpTime = 1f;
     public float jumpSpeed = 9.8f;
 
-    public FA_InputActions inputActions;
+    private FA_InputActions inputActions;
     private Vector2 move;
     private Vector2 rotate;
     private float jumpStarted;
     private float movementSpeed;
+    private Vector3 targetRotation;
 
-    public Camera playerCamera;
-    private Vector3 cameraRotation;
-
-    private void OnEnable()
+    void Start()
     {
-        inputActions.Player.Enable();
-    }
+        movementSpeed = walkSpeed;
+        jumpStarted = -1f;
+        targetRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
 
-    private void OnDisable()
-    {
-        inputActions.Player.Disable();
-    }
-
-    private void Awake()
-    {
         //- Bind Input Events ----------------------------=
         //
-        inputActions = new FA_InputActions();
+        inputActions = GameManager.GetInputActions();
         //
         // Jump
         inputActions.Player.Jump.performed += ctx => Jump();
@@ -51,23 +43,13 @@ public class MovementController : MonoBehaviour
         inputActions.Player.Look.canceled += ctx => rotate = Vector2.zero;
     }
 
-    void Start()
-    {
-        movementSpeed = walkSpeed;
-        cameraRotation = new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z);
-        jumpStarted = -1f;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     // Update is called once per frame
     void Update()
     {
-        cameraRotation = new Vector3(cameraRotation.x + rotate.y, cameraRotation.y + rotate.x, cameraRotation.z);
-
         //- Rotate Towards Camera ------------------------=
         //
-        playerCamera.transform.eulerAngles = cameraRotation;
-        transform.eulerAngles = new Vector3(transform.rotation.x, cameraRotation.y, transform.rotation.z);
+        targetRotation = new Vector3(targetRotation.x /*+ rotate.y*/, targetRotation.y + rotate.x, transform.rotation.z);
+        transform.eulerAngles = targetRotation;
 
         //- Move Transform -------------------------------=
         //

@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3959380837018016699}
-  - component: {fileID: 7991805554008362767}
-  - component: {fileID: 349718881518890164}
-  - component: {fileID: 1213932896965386355}
   - component: {fileID: 7231190710473669474}
   - component: {fileID: 1539652842604359239}
+  - component: {fileID: 1213932896965386355}
+  - component: {fileID: 349718881518890164}
+  - component: {fileID: 2738094874194811410}
   m_Layer: 0
   m_Name: Gecko_Weapon
   m_TagString: Untagged
@@ -39,55 +39,8 @@ Transform:
   - {fileID: 6940294936624708458}
   - {fileID: 1780971720862405789}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7991805554008362767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433513845195551583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6799e0d4376e7248986abdce7e0ca69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetingCamera: {fileID: 0}
---- !u!114 &349718881518890164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433513845195551583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a044e2b28ab2041af0099524da74fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cycleAnimation: {fileID: 0}
-  isArmed: 0
-  projectileTemplate: {fileID: 5494740274010888166, guid: 4583e3ab85a297d4e83a2b645dc9c9fe, type: 3}
-  launchPoint: {fileID: 7934875255550724645}
-  projectileParent: {fileID: 0}
-  launchForce: 0
-  launchVelocity: 0
---- !u!114 &1213932896965386355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433513845195551583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770b38fe73c15b243a0680ef6fcf2fdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mountTarget: {fileID: 0}
-  mountOffset: {x: 0, y: 0, z: 0}
-  captureOffsetOnStart: 1
 --- !u!65 &7231190710473669474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,6 +83,55 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.06, y: 0.4, z: 0.2}
   m_Center: {x: 0, y: -0.15, z: -0.05}
+--- !u!114 &1213932896965386355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433513845195551583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770b38fe73c15b243a0680ef6fcf2fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mountTarget: {fileID: 0}
+  mountOffset: {x: 0, y: 0, z: 0}
+  captureOffsetOnStart: 1
+--- !u!114 &349718881518890164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433513845195551583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44a044e2b28ab2041af0099524da74fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleAnimation: {fileID: 0}
+  isArmed: 0
+  isAiming: 0
+  projectileTemplate: {fileID: 5494740274010888166, guid: 4583e3ab85a297d4e83a2b645dc9c9fe, type: 3}
+  launchPoint: {fileID: 7934875255550724645}
+  projectileParent: {fileID: 0}
+  launchForce: 0
+  launchVelocity: 0
+--- !u!114 &2738094874194811410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433513845195551583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTargetLockEnabled: 0
+  targetRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &3164936326266934177
 GameObject:
   m_ObjectHideFlags: 0

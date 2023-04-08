@@ -44,10 +44,10 @@ public class Destructible : MonoBehaviour
 
         if (collision.rigidbody) {
             float impactEnergy = GetKineticEnergyJoules(collision.rigidbody);
-            Debug.Log("IMPACT: "
+            /*Debug.Log("IMPACT: "
                 + impactEnergy + "[J] | "
                 + collision.rigidbody.velocity + "[m/s], "
-                + collision.rigidbody.mass + "[kg]");
+                + collision.rigidbody.mass + "[kg]");*/
             ApplyEnergyJoules(impactEnergy);
         }
     }
