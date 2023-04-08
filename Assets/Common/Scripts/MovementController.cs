@@ -64,11 +64,16 @@ public class MovementController : MonoBehaviour
     {
         cameraRotation = new Vector3(cameraRotation.x + rotate.y, cameraRotation.y + rotate.x, cameraRotation.z);
 
+        //- Rotate Towards Camera ------------------------=
+        //
         playerCamera.transform.eulerAngles = cameraRotation;
         transform.eulerAngles = new Vector3(transform.rotation.x, cameraRotation.y, transform.rotation.z);
 
-        transform.Translate(Vector3.right * Time.deltaTime * move.x * movementSpeed, Space.Self);
-        transform.Translate(Vector3.forward * Time.deltaTime * move.y * movementSpeed, Space.Self);
+        //- Move Transform -------------------------------=
+        //
+        Vector2 applyMove = Vector2.ClampMagnitude(move, 1);
+        transform.Translate(Vector3.right * Time.deltaTime * applyMove.x * movementSpeed, Space.Self);
+        transform.Translate(Vector3.forward * Time.deltaTime * applyMove.y * movementSpeed, Space.Self);
 
         //- Apply Jump -----------------------------------=
         //

@@ -8,10 +8,6 @@ public class CameraMovement : MonoBehaviour
 
     public Vector3 offset;
 
-    public float xOffset;
-    public float yOffset;
-    public float zOffset;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,8 +21,10 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 targetPosition = target.transform.position + offset;
+        // TODO: Do this with Math
+        //Vector3 correctedOffset = -target.transform.forward * offset;
 
+        Vector3 targetPosition = target.transform.position + offset;
         transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);
     }
 }
