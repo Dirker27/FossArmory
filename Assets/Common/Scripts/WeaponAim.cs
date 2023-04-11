@@ -22,7 +22,7 @@ public class WeaponAim : MonoBehaviour
     {
         if (targetProvider == null) { return; }
 
-        if (!targetProvider.IsTargeingLocation())
+        if (!targetProvider.IsTargetingLocationValid())
         {
             targetRotation = transform.forward;
         }
@@ -33,9 +33,9 @@ public class WeaponAim : MonoBehaviour
         //Vector3 rotation = Vector3.SmoothDamp(transform.rotation.eulerAngles, targetRotation, ref velocity, smoothTime);
         //transform.rotation.SetLookRotation(targetRotation);
 
-        if (targetProvider.IsTargeingLocation())
+        if (targetProvider.IsTargetingLocationValid())
         {
-            transform.LookAt(targetProvider.GetLookPointPosition(), Vector3.up);
+            transform.LookAt(targetProvider.GetTargetingLocation(), Vector3.up);
         }
     }
 

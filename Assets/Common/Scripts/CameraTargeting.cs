@@ -35,7 +35,7 @@ public class CameraTargeting : TargetProvider {
 
     void Update()
     {
-        Vector3 targetPosition = GetLookPointPosition();
+        Vector3 targetPosition = GetTargetingLocation();
         targetPoint.SetTargetPosition(targetPosition);
 
         Target();
@@ -56,12 +56,12 @@ public class CameraTargeting : TargetProvider {
         }
     }
 
-    public override bool IsTargeingLocation()
+    public override bool IsTargetingLocationValid()
     {
         return _targetPositionValid;
     }
 
-    public override Vector3 GetLookPointPosition()
+    public override Vector3 GetTargetingLocation()
     {
         return _targetingPosition;
     }
