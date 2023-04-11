@@ -5,13 +5,18 @@ using System.Runtime.CompilerServices;
 /**
  * Aiming module to be mounted to a camera to provide a point of aim.
  */
-public class CameraTargeting : MonoBehaviour {
+public class CameraTargeting : TargetProvider {
 
     private Camera cam;
 
     private TargetPoint targetPoint;
 
-    private static int LAYER_MASK = 1 << 8;
+    // TOOD: Define Layers for UI + Terget-able objects.
+    //private static int LAYER_MASK = 1 << 8;
+
+    private Ray _targetingRay;
+    private Vector3 _targetingPosition;
+    private bool _targetPositionValid;
 
 	void Start()
     {
@@ -22,30 +27,47 @@ public class CameraTargeting : MonoBehaviour {
 
         targetPoint = GetComponentInChildren<TargetPoint>();
         if(!targetPoint) { Debug.LogError("No TargetPoint Set!");  }
+
+        _targetingPosition = Vector3.zero;
+        _targetingRay = new Ray();
+        _targetPositionValid = false;
 	}
 
     void Update()
     {
         Vector3 targetPosition = GetLookPointPosition();
         targetPoint.SetTargetPosition(targetPosition);
+
+        Target();
     }
 
-    private Vector3 GetLookPointPosition()
+    private void Target()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        _targetingRay = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
-        if(Physics.Raycast(ray, out hitInfo, float.PositiveInfinity))
+        if (Physics.Raycast(_targetingRay, out hitInfo, float.PositiveInfinity))
         {
-            return hitInfo.point;
+            _targetingPosition = hitInfo.point;
+            _targetPositionValid = true;
         }
-        return Vector3.zero;
+        else
+        {
+            _targetPositionValid = false;
+        }
     }
 
-    /**
-     * Provides a Ray cast from current position to the cursor position.
-     */
-    public Ray GetTargetingRay()
+    public override bool IsTargeingLocation()
     {
-        return cam.ScreenPointToRay(Input.mousePosition);
+        return _targetPositionValid;
+    }
+
+    public override Vector3 GetLookPointPosition()
+    {
+        return _targetingPosition;
+    }
+
+    public override Ray GetTargetingRay()
+    {
+        return _targetingRay;
     }
 }

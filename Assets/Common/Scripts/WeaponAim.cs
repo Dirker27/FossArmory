@@ -6,22 +6,37 @@ using UnityEngine;
 public class WeaponAim : MonoBehaviour
 {
     public bool isTargetLockEnabled = false;
+
+    public TargetProvider targetProvider = null;
     public Vector3 targetRotation = Vector3.zero;
 
-    // Start is called before the first frame update
+    public Vector3 velocity = Vector3.zero;
+    public float smoothTime = 0.1f;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!isTargetLockEnabled) { return; }
+        if (targetProvider == null) { return; }
 
-        //Vector3 rotation = Vector3.Slerp(targetRotation, transform.rotation.eulerAngles, Time.deltaTime);
+        if (!targetProvider.IsTargeingLocation())
+        {
+            targetRotation = transform.forward;
+        }
 
-        //transform.rotation.SetLookRotation(rotation);
+        targetRotation = targetProvider.GetTargetingRay().direction;
+        Debug.Log("Target Weapon Rotation: " + targetRotation);
+
+        //Vector3 rotation = Vector3.SmoothDamp(transform.rotation.eulerAngles, targetRotation, ref velocity, smoothTime);
+        //transform.rotation.SetLookRotation(targetRotation);
+
+        if (targetProvider.IsTargeingLocation())
+        {
+            transform.LookAt(targetProvider.GetLookPointPosition(), Vector3.up);
+        }
     }
 
     public void SetTargetLock(bool targetLockEnabled)

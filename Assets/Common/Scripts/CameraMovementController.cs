@@ -7,7 +7,7 @@ public class CameraMovementController : MonoBehaviour
 {
     public GameObject target;
     public Vector3 offset = Vector3.zero;
-    public Vector3 velocity = Vector3.zero;
+    private Vector3 velocity = Vector3.zero;
     public float smoothTime = 0.3f;
 
     private FA_InputActions inputActions;
