@@ -22,8 +22,7 @@ public class VisibleDamage : MonoBehaviour
 
     public void ApplyProjectileDamage(Collision collision)
     {
-        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
-        damageTile.transform.parent = null;
+        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform.position, collision.transform.rotation, transform);;
     }
 
     private void OnCollisionEnter(Collision collision)
