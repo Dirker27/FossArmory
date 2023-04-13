@@ -57,8 +57,8 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform);
+        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.gameObject.transform);
         
-        GameObject.Destroy(this.gameObject);
+        //GameObject.Destroy(this.gameObject);
     }
 }

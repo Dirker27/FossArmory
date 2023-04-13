@@ -38,6 +38,10 @@ public class Destructible : MonoBehaviour
         if (_hasDestructed) { return; }
         _hasDestructed = true;
 
+        /*foreach (Collider collider in GetComponents<Collider>()) {
+            collider.enabled = false;
+        }*/
+
         foreach (GameObject go in debrisTemplate) {
             _spawnedDebris = GameObject.Instantiate(go, transform.position, transform.rotation);
             _spawnedDebris.transform.parent = debrisParent;
@@ -72,7 +76,7 @@ public class Destructible : MonoBehaviour
         if (!physicsEnabled) { return; }
 
         if (collision.rigidbody) {
-            _lastHitLocation = collision.transform.position;
+            _lastHitLocation = collision.gameObject.transform.position; //collision.GetContact(0).point;
             float impactEnergy = GetKineticEnergyJoules(collision.rigidbody);
             /*Debug.Log("IMPACT: "
                 + impactEnergy + "[J] | "
