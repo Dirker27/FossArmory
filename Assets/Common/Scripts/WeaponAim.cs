@@ -10,12 +10,12 @@ public class WeaponAim : MonoBehaviour
     public TargetProvider targetProvider = null;
     public Vector3 targetRotation = Vector3.zero;
 
-    public Vector3 velocity = Vector3.zero;
     public float smoothTime = 0.1f;
+    private Vector3 velocity;
 
     void Start()
     {
-        
+        velocity = Vector3.zero;
     }
 
     void Update()
@@ -28,7 +28,6 @@ public class WeaponAim : MonoBehaviour
         }
 
         targetRotation = targetProvider.GetTargetingRay().direction;
-        Debug.Log("Target Weapon Rotation: " + targetRotation);
 
         //Vector3 rotation = Vector3.SmoothDamp(transform.rotation.eulerAngles, targetRotation, ref velocity, smoothTime);
         //transform.rotation.SetLookRotation(targetRotation);

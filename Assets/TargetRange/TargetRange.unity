@@ -4863,7 +4863,6 @@ GameObject:
   - component: {fileID: 963194226}
   - component: {fileID: 963194232}
   - component: {fileID: 963194230}
-  - component: {fileID: 963194231}
   m_Layer: 0
   m_Name: TargetingCamera
   m_TagString: MainCamera
@@ -4961,21 +4960,6 @@ MonoBehaviour:
   target: {fileID: 1999924197}
   offset: {x: 0, y: 0, z: 0}
   smoothTime: 0.3
---- !u!114 &963194231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770b38fe73c15b243a0680ef6fcf2fdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mountTarget: {fileID: 1999924199}
-  mountOffset: {x: 0, y: 0, z: 0}
-  captureOffsetOnStart: 0
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10447,17 +10431,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8930955798084201652, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
   m_PrefabInstance: {fileID: 3356080293484357084}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1999924199 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2096211038866928791, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
-  m_PrefabInstance: {fileID: 3356080293484357084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1999924197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8b8fad45b1be8b478754c87e2dce41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2010048635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11895,6 +11868,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 422409798431499454, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
+      propertyPath: turnSpeed
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 422409798431499454, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
+      propertyPath: walkSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 422409798431499454, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
+      propertyPath: targetProvider
+      value: 
+      objectReference: {fileID: 963194232}
     - target: {fileID: 481216057462613558, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
       propertyPath: targetProvider
       value: 
@@ -11950,6 +11935,10 @@ PrefabInstance:
     - target: {fileID: 7671266489926052593, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7697408451982182375, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
+      propertyPath: lookSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7697408451982182375, guid: c6f6329df28131f4d9241a6f0958aabc, type: 3}
       propertyPath: targetProvider

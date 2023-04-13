@@ -16,7 +16,7 @@ public class ProjectileLauncher : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        if (launchPoint == null)
+        if (! launchPoint)
         {
             launchPoint = transform;
         }
