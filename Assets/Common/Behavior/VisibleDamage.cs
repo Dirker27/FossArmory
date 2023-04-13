@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class VisibleDamage : MonoBehaviour
 {
     // Bullet Hole Templates
     public GameObject projectileDamageTemplate;
+
+    public List<Tuple<float, GameObject>> damageStates = new List<Tuple<float, GameObject>>();
 
 
     // Start is called before the first frame update
@@ -22,7 +25,8 @@ public class VisibleDamage : MonoBehaviour
 
     public void ApplyProjectileDamage(Collision collision)
     {
-        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.transform.position, collision.transform.rotation, transform);;
+        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate,
+            collision.transform.position, collision.transform.rotation, transform);;
     }
 
     private void OnCollisionEnter(Collision collision)

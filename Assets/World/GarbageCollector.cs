@@ -21,11 +21,14 @@ public class GarbageCollector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (garbageChildren.Count > maxChildren)
-        {
-            GameObject toDestroy = garbageChildren[0];
-            garbageChildren.RemoveAt(0);
-            GameObject.Destroy(toDestroy);
+        int childCount = 0;
+        foreach (Transform child in GetComponentsInChildren<Transform>()) {
+
+            if (childCount > maxChildren) {
+                GameObject.Destroy(child.gameObject);
+            }
+
+            childCount++;
         }
     }
 }

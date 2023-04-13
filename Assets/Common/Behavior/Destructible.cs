@@ -22,23 +22,50 @@ public class Destructible : MonoBehaviour
     // whether we want to receive damage from the world's physics system
     public bool physicsEnabled = true;
 
-    private bool hasDestructed = false;
-
+    //~ PRIVATE STATE ------------------------------------=
+    //
+    private bool _hasDestructed = false;
+    private bool _performDestructPhysics = false;
+    private bool _performDestroy = false;
+    private GameObject _spawnedDebris = null;
     private Vector3 _lastHitLocation = Vector3.zero;
 
-    /**
-     * START
-     */
-    void Start()
-    {
+    //~ ========================================================= ~//
+    //  DESTRUCTION LOGIC
+    //~ ========================================================= ~//
 
+    public void Destruct() {
+        if (_hasDestructed) { return; }
+        _hasDestructed = true;
+
+        foreach (GameObject go in debrisTemplate) {
+            _spawnedDebris = GameObject.Instantiate(go, transform.position, transform.rotation);
+            _spawnedDebris.transform.parent = debrisParent;
+        }
+
+        _performDestructPhysics = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void FixedUpdate() {
+        if (!_performDestructPhysics) { return; }
+        _performDestructPhysics = false;
+
+        foreach (Rigidbody rb in _spawnedDebris.GetComponentsInChildren<Rigidbody>()) {
+            rb.AddExplosionForce(destructionForce, _lastHitLocation, 10, 10, ForceMode.Impulse);
+        }
+
+        _performDestroy = true;
     }
+
+    void Update() {
+        if (_performDestroy) {
+            GameObject.Destroy(this.gameObject);
+        }
+    }
+
+    //~ ========================================================= ~//
+    //  COLLISION / HEALTH LOGIC
+    //~ ========================================================= ~//
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -68,30 +95,11 @@ public class Destructible : MonoBehaviour
         }
     }
 
-    public void Destruct()
-    {
-        if (hasDestructed) { return; }
-        hasDestructed = true;
-
-        foreach (GameObject go in debrisTemplate)
-        {
-            GameObject debris = GameObject.Instantiate(go, transform.position, transform.rotation);
-            debris.transform.parent = debrisParent;
-
-            foreach(Rigidbody rb in debris.GetComponentsInChildren<Rigidbody>()) {
-                rb.AddExplosionForce(destructionForce, _lastHitLocation, 10, 10, ForceMode.Impulse);
-            }
-        }
-
-        GameObject.Destroy(this.gameObject);
-    }
-
     /**
      * KE == 1/2 m * v^2
      * 1[J] == 1[N] / 1[m]
      */
-    private float GetKineticEnergyJoules(Rigidbody rigidbody)
-    {
+    private static float GetKineticEnergyJoules(Rigidbody rigidbody) {
         float v2 = rigidbody.velocity.magnitude * rigidbody.velocity.magnitude;
         return (rigidbody.mass * v2) / 2;
     }
