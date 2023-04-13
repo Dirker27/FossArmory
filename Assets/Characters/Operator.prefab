@@ -611,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetProvider: {fileID: 0}
+  lookSpeed: 1
 --- !u!1 &7225771544161067099
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,11 +693,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4710e48a1784e71488304bc2140f4584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetProvider: {fileID: 0}
   walkSpeed: 3
   runSpeed: 10
-  turnSpeed: 1
+  turnSpeed: 0.25
   jumpTime: 1
   jumpSpeed: 5
+  turnSmoothTime: 0.3
 --- !u!114 &5548993137501472821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1309,7 +1312,6 @@ MonoBehaviour:
   isTargetLockEnabled: 0
   targetProvider: {fileID: 0}
   targetRotation: {x: 0, y: 0, z: 0}
-  velocity: {x: 0, y: 0, z: 0}
   smoothTime: 0.1
 --- !u!114 &8654307379469707606 stripped
 MonoBehaviour:
