@@ -1549,6 +1549,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 35127d758a5e3eb47a01c4de07dce388, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1143176202}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 35127d758a5e3eb47a01c4de07dce388, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1143176203}
   m_SourcePrefab: {fileID: 100100000, guid: 35127d758a5e3eb47a01c4de07dce388, type: 3}
 --- !u!4 &234868725 stripped
 Transform:
@@ -6822,6 +6825,26 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1143176203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143176201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a34d21c67797f14e8490b72c2fbd249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementAccelleration: 10
+  movementDecelleration: 5
+  walkingSpeed: 4
+  runningSpeed: 8
+  turningSpeed: 2
+  isRunning: 0
+  isCrouched: 0
+  ZERO_THRESHOLD: 0.03
 --- !u!1 &1145093234
 GameObject:
   m_ObjectHideFlags: 0
@@ -10131,9 +10154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementAccelleration: 10
   movementDecelleration: 5
-  walkingSpeed: 2
-  runningSpeed: 7
-  turningSpeed: 2
+  walkingSpeed: 5
+  runningSpeed: 10
+  turningSpeed: 4
   isRunning: 0
   isCrouched: 0
   ZERO_THRESHOLD: 0.03

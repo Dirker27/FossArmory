@@ -49,16 +49,12 @@ public class MovementController : MonoBehaviour
         //
         float dx = movement.x * movementAccelleration * Time.deltaTime;
         float dy = movement.y * movementAccelleration * Time.deltaTime;
-        Vector2 delta = new Vector2(dx, dy);
-        //if (delta.magnitude > 0) {
-            if (currentVelocity.magnitude < topSpeed) {
-                currentVelocity.x += dx;
-                currentVelocity.z += dy;
-            }
+        //if (currentVelocity.magnitude < topSpeed) {
+            currentVelocity.x += dx;
+            currentVelocity.z += dy;
         //}
-        //currentVelocity = Vector3.ClampMagnitude(currentVelocity, topSpeed);
+        currentVelocity = Vector3.ClampMagnitude(currentVelocity, topSpeed);
 
-        Debug.Log("Applying movement: " + movement + " :: [" + currentVelocity + "]");
         transform.Translate(currentVelocity * Time.deltaTime);
     }
 }
