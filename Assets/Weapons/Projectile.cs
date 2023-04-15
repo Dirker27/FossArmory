@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
         return (mass * (velocity * velocity)) / 2;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionHit(Collision collision)
     {
         VisibleDamage vd = collision.gameObject.GetComponent<VisibleDamage>();
         if (vd)
@@ -57,8 +57,7 @@ public class Projectile : MonoBehaviour
             return;
         }
 
-        GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.gameObject.transform);
-        
+        //GameObject damageTile = GameObject.Instantiate(projectileDamageTemplate, collision.gameObject.transform);
         //GameObject.Destroy(this.gameObject);
     }
 }
