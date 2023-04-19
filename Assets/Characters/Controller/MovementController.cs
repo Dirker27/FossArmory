@@ -14,11 +14,14 @@ public class MovementController : MonoBehaviour
 
     public float ZERO_THRESHOLD = 0.03f;
 
-    protected Vector3 currentVelocity;
-    protected Vector3 currentRotationSpeed;
+    protected Vector3 currentMovementVelocity = Vector3.zero;
+    protected float currentRotationVelocity = 0f;
 
     private Vector3 decellerationJerk = Vector3.zero;
 
+    /**
+     * Moves the parent transform on the x/z plane on an accelleration-based model
+     */
     protected void ApplyMovement2D(Vector2 movement) {
         float decelleration = movementDecelleration * Time.deltaTime;
         float topSpeed = isRunning ? runningSpeed : walkingSpeed;
@@ -26,35 +29,68 @@ public class MovementController : MonoBehaviour
         //- Dampen / Decellerate -------------------------=
         //
         // X
-        if (currentVelocity.x != 0) {
-            if (currentVelocity.x > 0) {
-                currentVelocity.x -= decelleration;
+        if (currentMovementVelocity.x != 0) {
+            if (currentMovementVelocity.x > 0) {
+                currentMovementVelocity.x -= decelleration;
             } else {
-                currentVelocity.x += decelleration;
+                currentMovementVelocity.x += decelleration;
             }
         }
-        if (Mathf.Abs(currentVelocity.x) < ZERO_THRESHOLD) { currentVelocity.x = 0; }
+        if (Mathf.Abs(currentMovementVelocity.x) < ZERO_THRESHOLD) { currentMovementVelocity.x = 0; }
         //
         // Z (y == z)
-        if (currentVelocity.z != 0) {
-            if (currentVelocity.z > 0) {
-                currentVelocity.z -= decelleration;
+        if (currentMovementVelocity.z != 0) {
+            if (currentMovementVelocity.z > 0) {
+                currentMovementVelocity.z -= decelleration;
             } else {
-                currentVelocity.z += decelleration;
+                currentMovementVelocity.z += decelleration;
             }
         }
-        if (Mathf.Abs(currentVelocity.z) < ZERO_THRESHOLD) { currentVelocity.z = 0; }
+        if (Mathf.Abs(currentMovementVelocity.z) < ZERO_THRESHOLD) { currentMovementVelocity.z = 0; }
 
         //- Accellerate to Top Speed ---------------------=
         //
         float dx = movement.x * movementAccelleration * Time.deltaTime;
         float dy = movement.y * movementAccelleration * Time.deltaTime;
         //if (currentVelocity.magnitude < topSpeed) {
-            currentVelocity.x += dx;
-            currentVelocity.z += dy;
+            currentMovementVelocity.x += dx;
+            currentMovementVelocity.z += dy;
         //}
-        currentVelocity = Vector3.ClampMagnitude(currentVelocity, topSpeed);
+        currentMovementVelocity = Vector3.ClampMagnitude(currentMovementVelocity, topSpeed);
 
-        transform.Translate(currentVelocity * Time.deltaTime);
+        transform.Translate(currentMovementVelocity * Time.deltaTime);
+    }
+
+    /**
+     * Turns towards a given target point locked on the Y-axis.
+     */
+    protected void ApplyRotation2D(Quaternion targetRotation) {
+        // Clamp rotation to shortest direction
+        float yDiff = _normalize360(targetRotation.eulerAngles.y - transform.eulerAngles.y);
+        /*Debug.Log("Target Player Rotation: " + targetRotation.eulerAngles
+            + " :: " + yDiff
+            + " From: " + transform.eulerAngles);*/
+
+    // Convert target delta to diff
+    float baseAngle = 0;
+        if (yDiff > 180) {
+            baseAngle = 360;
+        } else if (yDiff < -180) {
+            baseAngle = -360;
+        }
+        float yDelta = Mathf.SmoothDamp(baseAngle, yDiff, ref currentRotationVelocity, turningSpeed);
+        Vector3 applyRotation = new Vector3(0, yDelta, 0);
+        //Debug.Log("Applying Rotation: " + applyRotation);
+
+        // Rotate Transform (conserve physics)
+        transform.Rotate(applyRotation);
+    }
+    private static float _normalize360(float angle) {
+        if (angle < -180) {
+            return 360 + angle;
+        } else if (angle > 180) {
+            return -360 + angle;
+        }
+        return angle;
     }
 }

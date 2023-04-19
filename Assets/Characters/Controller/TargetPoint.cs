@@ -15,4 +15,9 @@ public class TargetPoint : MonoBehaviour
     {
         this.targetPosition = targetPosition;
     }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, 0.25f);
+    }
 }

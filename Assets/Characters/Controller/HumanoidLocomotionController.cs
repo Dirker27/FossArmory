@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WeaponLocomotion : MovementController
+public class HumanoidLocomotionController : MovementController
 {
-    private Animator animator;
+    public Animator animator;
 
     private Vector2 inputMovement;
     private Vector2 inputRotation;
@@ -13,8 +13,10 @@ public class WeaponLocomotion : MovementController
     // Start is called before the first frame update
     void Start()
     {
-        if (! TryGetComponent<Animator>(out animator)) {
-            Debug.LogError("Missing Required Component: Animator");
+        if (!animator) {
+            if (!TryGetComponent<Animator>(out animator)) {
+                Debug.LogError("Missing Required Component: Animator"); 
+            }
         }
 
         BindInput(GameManager.GetInputActions());
@@ -26,11 +28,14 @@ public class WeaponLocomotion : MovementController
         ApplyMovement2D(Vector2.ClampMagnitude(inputMovement, 1));
 
         Vector2 animVelocity = new Vector2(currentMovementVelocity.x, currentMovementVelocity.z);
-        animator.SetFloat("VelX", (currentMovementVelocity.x / runningSpeed));
-        animator.SetFloat("VelZ", 2 * (currentMovementVelocity.z / runningSpeed));
-        animator.SetFloat("VelMagnitude", animVelocity.magnitude / runningSpeed);
+        animator.SetFloat("VelX", currentMovementVelocity.x);
+        animator.SetFloat("VelZ", currentMovementVelocity.z);
+        animator.SetFloat("VelMagnitude", animVelocity.magnitude);
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("IsCrouched", isCrouched);
+
+        animator.SetLayerWeight(0, isCrouched ? 0 : 1);
+        animator.SetLayerWeight(1, isCrouched ? 1 : 0);
     }
 
     private void BindInput(FA_InputActions inputActions) {
