@@ -11,11 +11,11 @@ public class WeaponAim : MonoBehaviour
     public Vector3 targetRotation = Vector3.zero;
 
     public float smoothTime = 0.1f;
-    private Vector3 velocity;
+    private Vector3 turnVelocity;
 
     void Start()
     {
-        velocity = Vector3.zero;
+        turnVelocity = Vector3.zero;
     }
 
     void Update()

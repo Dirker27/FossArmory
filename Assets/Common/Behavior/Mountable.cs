@@ -7,24 +7,43 @@ using UnityEngine;
  */
 public class Mountable : MonoBehaviour
 {
-    public MountPoint mountTarget;
+    public MountPoint mountPoint;
     public Vector3 mountOffset = Vector3.zero;
+
+    public bool applyRotation = false;
     public bool captureOffsetOnStart = false;
 
-    private void Start()
+    void Start()
     {
-        if (captureOffsetOnStart && mountTarget)
+        if (captureOffsetOnStart && mountPoint)
         {
-            mountOffset = transform.position - mountTarget.transform.position;
+            mountOffset = transform.position - mountPoint.transform.position;
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (mountTarget)
+        if (mountPoint)
         {
-            transform.position = mountTarget.GetCurrentPosition() + mountOffset;
+            transform.position = mountPoint.GetCurrentPosition() + mountOffset;
+
+            if (applyRotation) {
+                transform.rotation = mountPoint.transform.rotation;
+            }
+        }
+    }
+
+    public void Mount(MountPoint mountPoint) {
+        Mount(mountPoint, Vector3.zero);
+    }
+    public void Mount(MountPoint mountPoint, Vector3 mountOffset) {
+        this.mountPoint = mountPoint;
+        this.mountOffset = mountOffset;
+    }
+
+    private void OnDrawGizmos() {
+        if (mountPoint) {
+            Gizmos.DrawLine(transform.position, mountPoint.transform.position);
         }
     }
 }

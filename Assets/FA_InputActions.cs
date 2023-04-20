@@ -98,6 +98,24 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""d0607e4c-951f-47b9-8410-707382d8a9fa"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipmentSelect"",
+                    ""type"": ""Button"",
+                    ""id"": ""e6930ed5-73f4-4361-967b-4c64dcd35829"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -428,6 +446,50 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4262e003-aa5a-4caf-b794-c14943aabd0a"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""WeaponSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5559a739-e28e-4eea-b457-3799e7fe30b3"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""WeaponSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59aa035d-171b-4938-a0ca-8aa36dc236e4"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""EquipmentSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad8db11d-0eb4-4030-b5f4-346eebc862f9"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""EquipmentSelect"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1023,6 +1085,8 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         m_Player_Ready = m_Player.FindAction("Ready", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
+        m_Player_WeaponSelect = m_Player.FindAction("WeaponSelect", throwIfNotFound: true);
+        m_Player_EquipmentSelect = m_Player.FindAction("EquipmentSelect", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1104,6 +1168,8 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Ready;
     private readonly InputAction m_Player_Aim;
     private readonly InputAction m_Player_Crouch;
+    private readonly InputAction m_Player_WeaponSelect;
+    private readonly InputAction m_Player_EquipmentSelect;
     public struct PlayerActions
     {
         private @FA_InputActions m_Wrapper;
@@ -1116,6 +1182,8 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         public InputAction @Ready => m_Wrapper.m_Player_Ready;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
+        public InputAction @WeaponSelect => m_Wrapper.m_Player_WeaponSelect;
+        public InputAction @EquipmentSelect => m_Wrapper.m_Player_EquipmentSelect;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1149,6 +1217,12 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
+            @WeaponSelect.started += instance.OnWeaponSelect;
+            @WeaponSelect.performed += instance.OnWeaponSelect;
+            @WeaponSelect.canceled += instance.OnWeaponSelect;
+            @EquipmentSelect.started += instance.OnEquipmentSelect;
+            @EquipmentSelect.performed += instance.OnEquipmentSelect;
+            @EquipmentSelect.canceled += instance.OnEquipmentSelect;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1177,6 +1251,12 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
+            @WeaponSelect.started -= instance.OnWeaponSelect;
+            @WeaponSelect.performed -= instance.OnWeaponSelect;
+            @WeaponSelect.canceled -= instance.OnWeaponSelect;
+            @EquipmentSelect.started -= instance.OnEquipmentSelect;
+            @EquipmentSelect.performed -= instance.OnEquipmentSelect;
+            @EquipmentSelect.canceled -= instance.OnEquipmentSelect;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1367,6 +1447,8 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         void OnReady(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnWeaponSelect(InputAction.CallbackContext context);
+        void OnEquipmentSelect(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

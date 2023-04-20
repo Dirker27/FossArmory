@@ -2,14 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour,
+    Equipable, Usable
 {
-    public Animation cycleAnimation;
+    
+    public WeaponConfiguration weaponConfiguration;
 
     public bool isArmed;
     public bool isAiming;
 
     private WeaponAim weaponAim;
+
+    void Start() {
+        if (!TryGetComponent<WeaponAim>(out weaponAim)) {
+            Debug.LogError("Missing Required Component: WeaponAim");
+        }
+    }
+
+    public virtual void Equip() {
+
+    }
+
+    public virtual void UnEquip() {
+
+    }
+
+    public virtual void Use() {
+        Fire();
+    }
 
     public void Ready()
     {
@@ -34,18 +54,4 @@ public abstract class Weapon : MonoBehaviour
     }
 
     public abstract void Fire();
-
-    void Start()
-    {
-        weaponAim = GetComponent<WeaponAim>();
-        if (!weaponAim)
-        {
-            Debug.LogError("Missing Required Component: WeaponAim");
-        }
-    }
-
-    void Update()
-    {
-        
-    }
 }

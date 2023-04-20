@@ -6,6 +6,7 @@ using UnityEngine;
 public class ProjectileLauncher : Weapon
 {
     public Projectile projectileTemplate;
+    public Animator animator;
 
     public Transform launchPoint;
     public Transform projectileParent;
@@ -27,9 +28,9 @@ public class ProjectileLauncher : Weapon
         Projectile projectile = GameObject.Instantiate(projectileTemplate, launchPoint.position, transform.rotation);
         projectile.transform.parent = projectileParent;
 
-        if (cycleAnimation)
+        if (animator)
         {
-            cycleAnimation.Play();
+            animator.SetBool("isFiring", true);
         }
 
         /*Rigidbody rb = projectile.GetComponent<Rigidbody>();

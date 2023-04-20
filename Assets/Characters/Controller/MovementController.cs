@@ -6,9 +6,11 @@ public class MovementController : MonoBehaviour
 {
     public float movementAccelleration = 3f;
     public float movementDecelleration = 1f;
+
     public float walkingSpeed = 3f;
     public float runningSpeed = 7f;
     public float turningSpeed = 2f;
+
     public bool isRunning = false;
     public bool isCrouched = false;
 

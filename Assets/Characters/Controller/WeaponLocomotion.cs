@@ -26,9 +26,9 @@ public class WeaponLocomotion : MovementController
         ApplyMovement2D(Vector2.ClampMagnitude(inputMovement, 1));
 
         Vector2 animVelocity = new Vector2(currentMovementVelocity.x, currentMovementVelocity.z);
-        animator.SetFloat("VelX", (currentMovementVelocity.x / runningSpeed));
-        animator.SetFloat("VelZ", 2 * (currentMovementVelocity.z / runningSpeed));
-        animator.SetFloat("VelMagnitude", animVelocity.magnitude / runningSpeed);
+        animator.SetFloat("VelX", currentMovementVelocity.x);
+        animator.SetFloat("VelZ", currentMovementVelocity.z);
+        animator.SetFloat("VelMagnitude", animVelocity.magnitude);
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("IsCrouched", isCrouched);
     }

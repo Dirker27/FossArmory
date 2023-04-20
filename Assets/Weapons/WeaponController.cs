@@ -12,16 +12,6 @@ public class WeaponController : MonoBehaviour
 
     private FA_InputActions inputActions;
 
-    private void OnEnable()
-    {
-        inputActions.Player.Enable();
-    }
-
-    private void OnDisable()
-    {
-        inputActions.Player.Disable();
-    }
-
     private void Awake()
     {
         //- Bind Input Events ----------------------------=
@@ -36,16 +26,6 @@ public class WeaponController : MonoBehaviour
         inputActions.Player.Aim.canceled += ctx => UnAim();
         // Fire Weapon
         inputActions.Player.Fire.performed += ctx => Fire();
-    }
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-        
     }
 
     private void Ready()
