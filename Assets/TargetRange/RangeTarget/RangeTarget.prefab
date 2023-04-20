@@ -182,7 +182,7 @@ MonoBehaviour:
   debrisParent: {fileID: 0}
   destructionForce: 10
   minimumDestructionThreshold: 50
-  totalDestructionEnergy: 750
+  totalDestructionEnergy: 1250
   lifetimeEnergyAbsorbed: 0
   physicsEnabled: 1
 --- !u!114 &-6075852173898506836

@@ -16,7 +16,7 @@ public class TargetHUD : MonoBehaviour
         if (!destructibleHealth || !textTarget) { return; }
 
         decimal health = (decimal) destructibleHealth.lifetimeEnergyAbsorbed;
-        string text = health.ToString("F2") + " / " +
+        string text = health.ToString("F0") + " / " +
             destructibleHealth.totalDestructionEnergy;
         textTarget.text = text;
     }
