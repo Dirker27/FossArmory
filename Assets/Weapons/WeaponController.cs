@@ -12,20 +12,11 @@ public class WeaponController : MonoBehaviour
 
     private FA_InputActions inputActions;
 
-    private void Awake()
+    private void Start()
     {
         //- Bind Input Events ----------------------------=
         //
-        inputActions = new FA_InputActions();
-        //
-        // Fire Weapon
-        inputActions.Player.Ready.performed += ctx => Ready();
-        inputActions.Player.Ready.canceled += ctx => UnReady();
-        // Fire Weapon
-        inputActions.Player.Aim.performed += ctx => Aim();
-        inputActions.Player.Aim.canceled += ctx => UnAim();
-        // Fire Weapon
-        inputActions.Player.Fire.performed += ctx => Fire();
+        BindInput(GameManager.GetInputActions());
     }
 
     private void Ready()
@@ -71,5 +62,16 @@ public class WeaponController : MonoBehaviour
             Debug.Log("[Player Action] FIRING WEAPON: [" + weapon.name + "]");
             weapon.Fire();
         }
+    }
+
+    private void BindInput(FA_InputActions inputActions) {
+        // Fire Weapon
+        inputActions.Player.Ready.performed += ctx => Ready();
+        inputActions.Player.Ready.canceled += ctx => UnReady();
+        // Fire Weapon
+        inputActions.Player.Aim.performed += ctx => Aim();
+        inputActions.Player.Aim.canceled += ctx => UnAim();
+        // Fire Weapon
+        inputActions.Player.Fire.performed += ctx => Fire();
     }
 }

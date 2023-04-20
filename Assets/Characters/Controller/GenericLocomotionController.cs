@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class WeaponLocomotion : MovementController
+/**
+ * Controls Animation States for the Generic Locomotion animator.
+ */
+public class GenericLocomotionController : MovementController
 {
     private Animator animator;
 
