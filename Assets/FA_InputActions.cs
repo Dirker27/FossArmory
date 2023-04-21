@@ -116,6 +116,15 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Walk"",
+                    ""type"": ""Button"",
+                    ""id"": ""037744c4-0019-4f96-957b-00fa1be56e0e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -490,6 +499,28 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""EquipmentSelect"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6d67143-5165-4ee6-96bb-1d0106527609"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3bbc613c-6182-419e-a1b7-3e9418181371"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Walk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1087,6 +1118,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_WeaponSelect = m_Player.FindAction("WeaponSelect", throwIfNotFound: true);
         m_Player_EquipmentSelect = m_Player.FindAction("EquipmentSelect", throwIfNotFound: true);
+        m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1170,6 +1202,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_WeaponSelect;
     private readonly InputAction m_Player_EquipmentSelect;
+    private readonly InputAction m_Player_Walk;
     public struct PlayerActions
     {
         private @FA_InputActions m_Wrapper;
@@ -1184,6 +1217,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @WeaponSelect => m_Wrapper.m_Player_WeaponSelect;
         public InputAction @EquipmentSelect => m_Wrapper.m_Player_EquipmentSelect;
+        public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1223,6 +1257,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @EquipmentSelect.started += instance.OnEquipmentSelect;
             @EquipmentSelect.performed += instance.OnEquipmentSelect;
             @EquipmentSelect.canceled += instance.OnEquipmentSelect;
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1257,6 +1294,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @EquipmentSelect.started -= instance.OnEquipmentSelect;
             @EquipmentSelect.performed -= instance.OnEquipmentSelect;
             @EquipmentSelect.canceled -= instance.OnEquipmentSelect;
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1449,6 +1489,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnWeaponSelect(InputAction.CallbackContext context);
         void OnEquipmentSelect(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
