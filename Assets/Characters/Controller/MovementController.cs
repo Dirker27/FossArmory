@@ -4,29 +4,32 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public float movementAccelleration = 3f;
-    public float movementDecelleration = 1f;
+    public float movementAccelleration = 5f;
+    public float movementDecelleration = 3f;
 
-    public float walkingSpeed = 3f;
+    public float walkingSpeed = 1f;
+    public float joggingSpeed = 3f;
     public float runningSpeed = 7f;
     public float turningSpeed = 2f;
 
+    public bool isWalking = false;
     public bool isRunning = false;
     public bool isCrouched = false;
-
-    public float ZERO_THRESHOLD = 0.03f;
 
     protected Vector3 currentMovementVelocity = Vector3.zero;
     protected float currentRotationVelocity = 0f;
 
     private Vector3 decellerationJerk = Vector3.zero;
+    private static float ZERO_THRESHOLD = 0.03f;
 
     /**
      * Moves the parent transform on the x/z plane on an accelleration-based model
      */
     protected void ApplyMovement2D(Vector2 movement) {
         float decelleration = movementDecelleration * Time.deltaTime;
-        float topSpeed = isRunning ? runningSpeed : walkingSpeed;
+        
+        float topSpeed = isWalking ? walkingSpeed : joggingSpeed;
+        topSpeed = isRunning ? runningSpeed : topSpeed;
 
         //- Dampen / Decellerate -------------------------=
         //

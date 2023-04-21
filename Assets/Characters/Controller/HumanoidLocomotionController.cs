@@ -7,6 +7,9 @@ public class HumanoidLocomotionController : MovementController
 {
     public Animator animator;
 
+    public bool isArmed;
+    public bool isAiming;
+
     private Vector2 inputMovement;
     private Vector2 inputRotation;
 
@@ -28,28 +31,39 @@ public class HumanoidLocomotionController : MovementController
         ApplyMovement2D(Vector2.ClampMagnitude(inputMovement, 1));
 
         Vector2 animVelocity = new Vector2(currentMovementVelocity.x, currentMovementVelocity.z);
+        
+        // TODO: Set w/ HashCode
         animator.SetFloat("VelX", currentMovementVelocity.x);
         animator.SetFloat("VelZ", currentMovementVelocity.z);
         animator.SetFloat("VelMagnitude", animVelocity.magnitude);
+        animator.SetBool("IsWalking", isWalking);
         animator.SetBool("IsRunning", isRunning);
         animator.SetBool("IsCrouched", isCrouched);
+        animator.SetBool("IsArmed", isArmed);
 
         animator.SetLayerWeight(0, isCrouched ? 0 : 1);
         animator.SetLayerWeight(1, isCrouched ? 1 : 0);
+        animator.SetLayerWeight(2, isArmed ? 1 : 0);
     }
 
     private void BindInput(FA_InputActions inputActions) {
         // Movement
         inputActions.Player.Move.performed += ctx => inputMovement = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => inputMovement = Vector2.zero;
-        // Sprint
+        // Sprint (Hold)
         inputActions.Player.Run.performed += ctx => isRunning = true;
         inputActions.Player.Run.canceled += ctx => isRunning = false;
-        // Crouch
-        inputActions.Player.Crouch.performed += ctx => isCrouched = true;
-        inputActions.Player.Crouch.canceled += ctx => isCrouched = false;
+        // Walk (Toggle)
+        inputActions.Player.Walk.performed += ctx => isWalking = !isWalking;
+        // Crouch (Toggle)
+        inputActions.Player.Crouch.performed += ctx => isCrouched = !isCrouched;
         // Rotation
         inputActions.Player.Look.performed += ctx => inputRotation = ctx.ReadValue<Vector2>();
         inputActions.Player.Look.canceled += ctx => inputRotation = Vector2.zero;
+        // Ready Weapon (Toggle)
+        inputActions.Player.Ready.performed += ctx => isArmed = !isArmed;
+        // Aim Weapon (Hold)
+        inputActions.Player.Aim.performed += ctx => isAiming = true;
+        inputActions.Player.Aim.canceled += ctx => isAiming = false;
     }
 }
