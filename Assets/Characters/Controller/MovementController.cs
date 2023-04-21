@@ -34,24 +34,24 @@ public class MovementController : MonoBehaviour
         //- Dampen / Decellerate -------------------------=
         //
         // X
-        if (currentMovementVelocity.x != 0) {
-            if (currentMovementVelocity.x > 0) {
-                currentMovementVelocity.x -= decelleration;
-            } else {
-                currentMovementVelocity.x += decelleration;
+            if (currentMovementVelocity.x != 0) {
+                if (currentMovementVelocity.x > 0) {
+                    currentMovementVelocity.x -= decelleration;
+                } else {
+                    currentMovementVelocity.x += decelleration;
+                }
             }
-        }
-        if (Mathf.Abs(currentMovementVelocity.x) < ZERO_THRESHOLD) { currentMovementVelocity.x = 0; }
-        //
-        // Z (y == z)
-        if (currentMovementVelocity.z != 0) {
-            if (currentMovementVelocity.z > 0) {
-                currentMovementVelocity.z -= decelleration;
-            } else {
-                currentMovementVelocity.z += decelleration;
+            if (Mathf.Abs(currentMovementVelocity.x) < ZERO_THRESHOLD) { currentMovementVelocity.x = 0; }
+            //
+            // Z (y == z)
+            if (currentMovementVelocity.z != 0) {
+                if (currentMovementVelocity.z > 0) {
+                    currentMovementVelocity.z -= decelleration;
+                } else {
+                    currentMovementVelocity.z += decelleration;
+                }
             }
-        }
-        if (Mathf.Abs(currentMovementVelocity.z) < ZERO_THRESHOLD) { currentMovementVelocity.z = 0; }
+            if (Mathf.Abs(currentMovementVelocity.z) < ZERO_THRESHOLD) { currentMovementVelocity.z = 0; }
 
         //- Accellerate to Top Speed ---------------------=
         //

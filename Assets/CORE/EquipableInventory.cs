@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+/**
+ * Manages equipment currently stored on a given pawn's body.
+ * 
+ * Requires MountPoints to visibly store weapons.
+ */
 public class EquipableInventory : MonoBehaviour
 {
     public Loadout loadout;
@@ -38,13 +43,21 @@ public class EquipableInventory : MonoBehaviour
             }
             HolsterWeapon(holsteredWeapon);
         }
+
+        if (backWeapon) {
+            if (!backWeapon.isActiveAndEnabled) {
+                Debug.Log("Instantiating Secondary Weapon...");
+                backWeapon = GameObject.Instantiate(backWeapon, transform);
+            }
+            BackWeapon(backWeapon);
+        }
     }
 
     public void EquipWeapon(Weapon weapon) {
         currentWeapon = weapon;
 
         if (weapon.TryGetComponent<Mountable>(out Mountable m)) {
-            m.Mount(backHolster);
+            m.Mount(primaryWeaponHand);
         }
     }
 
@@ -53,6 +66,14 @@ public class EquipableInventory : MonoBehaviour
 
         if (weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(leftHolster);
+        }
+    }
+
+    public void BackWeapon(Weapon weapon) {
+        backWeapon = weapon;
+
+        if (weapon.TryGetComponent<Mountable>(out Mountable m)) {
+            m.Mount(backHolster);
         }
     }
 }
