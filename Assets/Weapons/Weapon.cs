@@ -12,11 +12,14 @@ public abstract class Weapon : MonoBehaviour,
     public bool isAiming;
 
     private WeaponAim weaponAim;
+    private Mountable mountable;
 
     void Start() {
         if (!TryGetComponent<WeaponAim>(out weaponAim)) {
             Debug.LogError("Missing Required Component: WeaponAim");
         }
+
+        TryGetComponent<Mountable>(out mountable);
     }
 
     public virtual void Equip() {
@@ -45,12 +48,20 @@ public abstract class Weapon : MonoBehaviour,
     {
         isAiming = true;
         if (weaponAim) { weaponAim.SetTargetLock(true); }
+
+        if (mountable) {
+            mountable.applyRotation = false;
+        }
     }
 
     public void CancelAim()
     {
         isAiming = false;
         if (weaponAim) { weaponAim.SetTargetLock(false); }
+
+        if (mountable) {
+            mountable.applyRotation = true;
+        }
     }
 
     public abstract void Fire();

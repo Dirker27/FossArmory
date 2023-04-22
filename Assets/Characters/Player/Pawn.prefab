@@ -301,7 +301,7 @@ Transform:
   - {fileID: 1758990296098996535}
   - {fileID: 3505988936080834713}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7250711839614344237
 CapsuleCollider:
@@ -372,20 +372,23 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225771544161067099}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1abe8294f25a2c34981f18e560f06974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementAccelleration: 10
   movementDecelleration: 3
-  walkingSpeed: 3
+  walkingSpeed: 1
+  joggingSpeed: 3
   runningSpeed: 7
   turningSpeed: 2
+  isWalking: 0
   isRunning: 0
   isCrouched: 0
-  ZERO_THRESHOLD: 0.03
   animator: {fileID: 6867068671394926474}
+  isArmed: 0
+  isAiming: 0
 --- !u!114 &8307440869438467119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,9 +402,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWeapon: {fileID: 0}
-  primaryWeapon: {fileID: 5852061835101156283, guid: 5132a73b12a28af4ab3260ebbcb56b7a, type: 3}
+  primaryWeapon: {fileID: 646302134868947931, guid: ef5c72127c970b548a21b6fbf1ad849c, type: 3}
   holsteredWeapon: {fileID: 349718881518890164, guid: 2f38770f880d11146ba56f2cba31ec35, type: 3}
-  backWeapon: {fileID: 0}
+  backWeapon: {fileID: 5852061835101156283, guid: 5132a73b12a28af4ab3260ebbcb56b7a, type: 3}
   tacticalThrowable: {fileID: 0}
   lethalThrowable: {fileID: 0}
   leftHolster: {fileID: 4256363020877031332}
