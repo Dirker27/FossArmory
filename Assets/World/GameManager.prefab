@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 8684058243466755218}
   - component: {fileID: 9152504409005402012}
   - component: {fileID: 7809177728367374417}
+  - component: {fileID: 3272675806209511809}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -79,7 +80,7 @@ Transform:
   m_Children:
   - {fileID: 5556209542973136708}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8684058243466755218
 MonoBehaviour:
@@ -203,6 +204,34 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: f0dcf53f-eaba-4f51-b07f-3f3c81688521
     m_ActionName: Player/Run[/Keyboard/leftShift]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a34da084-fb99-40b8-b910-50bf300afaa6
+    m_ActionName: Player/Ready[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7b737b4d-48d1-4fa3-8d49-3190f69914ce
+    m_ActionName: Player/Aim[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3bca40e2-dffc-4a2c-beed-9a89174db078
+    m_ActionName: Player/Crouch[/Keyboard/leftCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d0607e4c-951f-47b9-8410-707382d8a9fa
+    m_ActionName: Player/WeaponSelect[/Keyboard/tab]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e6930ed5-73f4-4361-967b-4c64dcd35829
+    m_ActionName: Player/EquipmentSelect[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 037744c4-0019-4f96-957b-00fa1be56e0e
+    m_ActionName: Player/Walk[/Keyboard/leftAlt]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39fee00a-557b-49e2-9a97-be9c6f11fc55
+    m_ActionName: Player/Posess[/Keyboard/x]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -222,3 +251,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeScale: 1
   garbageCollector: {fileID: 0}
+  playerController: {fileID: 0}
+--- !u!114 &3272675806209511809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798670490521720279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 270de2f7f5f4f7d4497e4ea4f00b0d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activePawn: {fileID: 0}

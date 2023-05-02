@@ -18,7 +18,7 @@ public class Pawn : MonoBehaviour
     public WeaponController weaponController;
     public EquipmentController equipmentController;
 
-    private void Start() {
+    private void Awake() {
         if (!TryGetComponent<EquipableInventory>(out equipableInventory)) {
             Debug.LogError("Missing Required Component: Equipable Inventory");
         }

@@ -10094,24 +10094,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 991995129}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &992621436 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2798670490521720279, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-  m_PrefabInstance: {fileID: 7759856862520061595}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &992621441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 992621436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 270de2f7f5f4f7d4497e4ea4f00b0d58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activePawn: {fileID: 0}
 --- !u!4 &999689658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2171391178105009841, guid: e9fd28b8b8ec15043a0af3b8c42e9cb2, type: 3}
@@ -23462,75 +23444,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
-      value: a34da084-fb99-40b8-b910-50bf300afaa6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
-      value: 7b737b4d-48d1-4fa3-8d49-3190f69914ce
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[17].m_ActionId
-      value: 3bca40e2-dffc-4a2c-beed-9a89174db078
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_ActionId
-      value: d0607e4c-951f-47b9-8410-707382d8a9fa
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_ActionId
-      value: e6930ed5-73f4-4361-967b-4c64dcd35829
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionId
-      value: 037744c4-0019-4f96-957b-00fa1be56e0e
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[21].m_ActionId
-      value: 39fee00a-557b-49e2-9a97-be9c6f11fc55
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
-      value: Player/Ready[/Keyboard/r]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
-      value: Player/Aim[/Mouse/rightButton]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[17].m_ActionName
-      value: Player/Crouch[/Keyboard/leftCtrl]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[18].m_ActionName
-      value: Player/WeaponSelect[/Keyboard/tab]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[19].m_ActionName
-      value: Player/EquipmentSelect[/Keyboard/q]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[20].m_ActionName
-      value: Player/Walk[/Keyboard/leftAlt]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[21].m_ActionName
-      value: Player/Posess[/Keyboard/x]
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2798670490521720279, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 992621441}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}

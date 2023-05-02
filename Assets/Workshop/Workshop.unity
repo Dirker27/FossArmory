@@ -1078,6 +1078,8 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isCrouched: 0
+  inputMovement: {x: 0, y: 0}
+  inputRotation: {x: 0, y: 0}
 --- !u!1001 &1255462976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1304,7 +1306,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f814a35d35ecbf14cbf124eb396341b3, type: 2}
     - target: {fileID: 7225771544161067099, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_Name
-      value: Black Pawn
+      value: Black Pawn (Player)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225771544161067099, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7671266489926052593, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_RootOrder
@@ -1637,6 +1643,8 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isCrouched: 0
+  inputMovement: {x: 0, y: 0}
+  inputRotation: {x: 0, y: 0}
   animator: {fileID: 1682209410}
   isArmed: 0
   isAiming: 0
