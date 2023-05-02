@@ -46,7 +46,7 @@ public class EquipableInventory : MonoBehaviour
 
         if (backWeapon) {
             if (!backWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Secondary Weapon...");
+                Debug.Log("Instantiating Back Weapon...");
                 backWeapon = GameObject.Instantiate(backWeapon, transform);
             }
             BackWeapon(backWeapon);
@@ -56,7 +56,7 @@ public class EquipableInventory : MonoBehaviour
     public void EquipWeapon(Weapon weapon) {
         currentWeapon = weapon;
 
-        if (weapon.TryGetComponent<Mountable>(out Mountable m)) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(primaryWeaponHand);
         }
     }
@@ -64,7 +64,7 @@ public class EquipableInventory : MonoBehaviour
     public void HolsterWeapon(Weapon weapon) {
         holsteredWeapon = weapon;
 
-        if (weapon.TryGetComponent<Mountable>(out Mountable m)) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(leftHolster);
         }
     }
@@ -72,7 +72,7 @@ public class EquipableInventory : MonoBehaviour
     public void BackWeapon(Weapon weapon) {
         backWeapon = weapon;
 
-        if (weapon.TryGetComponent<Mountable>(out Mountable m)) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(backHolster);
         }
     }

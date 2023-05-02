@@ -582,7 +582,7 @@ GameObject:
   - component: {fileID: 5548993137501472821}
   m_Layer: 2
   m_Name: Operator
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -613,7 +613,7 @@ Transform:
   - {fileID: 1758990296098996535}
   - {fileID: 8107651165674196555}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &7250711839614344237
 CapsuleCollider:
@@ -653,11 +653,12 @@ MonoBehaviour:
   movementAccelleration: 3
   movementDecelleration: 1
   walkingSpeed: 3
+  joggingSpeed: 3
   runningSpeed: 7
   turningSpeed: 2
+  isWalking: 0
   isRunning: 0
   isCrouched: 0
-  ZERO_THRESHOLD: 0.03
   targetProvider: {fileID: 0}
   jumpTime: 1
   jumpSpeed: 5

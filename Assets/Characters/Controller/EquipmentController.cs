@@ -18,23 +18,9 @@ public class EquipmentController : MonoBehaviour
         if (!TryGetComponent<EquipableInventory>(out equipableInventory)) {
             Debug.LogError("Missing Required Component: Equipable Inventory");
         }
-
-        BindInput(GameManager.GetInputActions());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void BindInput(FA_InputActions inputActions) {
-
-        inputActions.Player.WeaponSelect.performed += ctx => WeaponSwap();
-        inputActions.Player.EquipmentSelect.performed += ctx => EquipmentSwap();
-    }
-
-    private void WeaponSwap() {
+    public void WeaponSwap() {
         Debug.Log("Swapping Weapons...");
 
         Weapon currentWeapon = equipableInventory.currentWeapon;
@@ -42,7 +28,7 @@ public class EquipmentController : MonoBehaviour
         equipableInventory.HolsterWeapon(currentWeapon);
     }
 
-    private void EquipmentSwap() {
-
+    public void EquipmentSwap() {
+        Debug.Log("Swapping Equipment...");
     }
 }

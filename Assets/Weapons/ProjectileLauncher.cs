@@ -32,13 +32,11 @@ public class ProjectileLauncher : Weapon
         {
             animator.SetBool("isFiring", true);
         }
+    }
 
-        /*Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        if (rb)
-        {
-            // TODO: Perform during FixedUpdate() to use physics thread
-            Vector3 forceVector = transform.forward * launchForce;
-            rb.AddForce(forceVector, ForceMode.Impulse);
-        }*/
+    public override void CancelFire() {
+        if (animator) {
+            animator.SetBool("isFiring", false);
+        }
     }
 }

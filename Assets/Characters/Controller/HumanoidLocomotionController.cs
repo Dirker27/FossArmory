@@ -10,9 +10,6 @@ public class HumanoidLocomotionController : MovementController
     public bool isArmed;
     public bool isAiming;
 
-    private Vector2 inputMovement;
-    private Vector2 inputRotation;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -47,19 +44,6 @@ public class HumanoidLocomotionController : MovementController
     }
 
     private void BindInput(FA_InputActions inputActions) {
-        // Movement
-        inputActions.Player.Move.performed += ctx => inputMovement = ctx.ReadValue<Vector2>();
-        inputActions.Player.Move.canceled += ctx => inputMovement = Vector2.zero;
-        // Sprint (Hold)
-        inputActions.Player.Run.performed += ctx => isRunning = true;
-        inputActions.Player.Run.canceled += ctx => isRunning = false;
-        // Walk (Toggle)
-        inputActions.Player.Walk.performed += ctx => isWalking = !isWalking;
-        // Crouch (Toggle)
-        inputActions.Player.Crouch.performed += ctx => isCrouched = !isCrouched;
-        // Rotation
-        inputActions.Player.Look.performed += ctx => inputRotation = ctx.ReadValue<Vector2>();
-        inputActions.Player.Look.canceled += ctx => inputRotation = Vector2.zero;
         // Ready Weapon (Toggle)
         inputActions.Player.Ready.performed += ctx => isArmed = !isArmed;
         // Aim Weapon (Hold)

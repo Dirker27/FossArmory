@@ -7,32 +7,21 @@ public class GameManager : MonoBehaviour
     public float timeScale = 1f;
 
     public GarbageCollector garbageCollector;
-
-    private static FA_InputActions inputActions;
-
-    void Awake()
-    {
-        inputActions = new FA_InputActions();
-    }
-
-    void OnEnable()
-    {
-        inputActions.Player.Enable();
-    }
-
-    void OnDisable()
-    {
-        inputActions.Player.Disable();
-    }
+    public PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (! GetComponentInChildren<GarbageCollector>())
+        garbageCollector = GetComponentInChildren<GarbageCollector>();
+        if (!garbageCollector)
         {
             Debug.LogError("MISSING REQUIRED COMPONENT: Garbage Collector");
+        }
+
+        if(!TryGetComponent<PlayerController>(out playerController)) {
+            Debug.LogError("MISSING REQUIRED COMPONENT: Player Controller");
         }
     }
 
@@ -43,6 +32,6 @@ public class GameManager : MonoBehaviour
 
     public static FA_InputActions GetInputActions()
     {
-        return inputActions;
+        return PlayerController.GetInputActions() ;
     }
 }

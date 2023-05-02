@@ -10,16 +10,7 @@ public class WeaponController : MonoBehaviour
 {
     public List<Weapon> activeWeapons = new List<Weapon>();
 
-    private FA_InputActions inputActions;
-
-    private void Start()
-    {
-        //- Bind Input Events ----------------------------=
-        //
-        BindInput(GameManager.GetInputActions());
-    }
-
-    private void Ready()
+    public void Ready()
     {
         foreach (Weapon weapon in activeWeapons)
         {
@@ -28,7 +19,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void UnReady()
+    public void CancelReady()
     {
         foreach (Weapon weapon in activeWeapons)
         {
@@ -37,7 +28,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void Aim()
+    public void Aim()
     {
         foreach (Weapon weapon in activeWeapons)
         {
@@ -46,7 +37,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void UnAim()
+    public void CancelAim()
     {
         foreach (Weapon weapon in activeWeapons)
         {
@@ -55,7 +46,7 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void Fire()
+    public void Fire()
     {
         foreach(Weapon weapon in activeWeapons)
         {
@@ -64,14 +55,10 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    private void BindInput(FA_InputActions inputActions) {
-        // Fire Weapon
-        inputActions.Player.Ready.performed += ctx => Ready();
-        inputActions.Player.Ready.canceled += ctx => UnReady();
-        // Fire Weapon
-        inputActions.Player.Aim.performed += ctx => Aim();
-        inputActions.Player.Aim.canceled += ctx => UnAim();
-        // Fire Weapon
-        inputActions.Player.Fire.performed += ctx => Fire();
+    public void CancelFire() {
+        foreach (Weapon weapon in activeWeapons) {
+            Debug.Log("[Player Action] CEASE-FIRING WEAPON: [" + weapon.name + "]");
+            weapon.CancelFire();
+        }
     }
 }

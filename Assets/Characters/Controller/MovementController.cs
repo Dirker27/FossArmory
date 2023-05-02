@@ -16,11 +16,46 @@ public class MovementController : MonoBehaviour
     public bool isRunning = false;
     public bool isCrouched = false;
 
+    public Vector2 inputMovement = Vector2.zero;
+    public Vector2 inputRotation = Vector2.zero;
+
     protected Vector3 currentMovementVelocity = Vector3.zero;
     protected float currentRotationVelocity = 0f;
 
     private Vector3 decellerationJerk = Vector3.zero;
     private static float ZERO_THRESHOLD = 0.03f;
+
+    public void Move(Vector2 movement) {
+        inputMovement = movement;
+    }
+
+    public void CancelMove() {
+        inputMovement = Vector2.zero;
+    }
+
+    public void Look(Vector2 rotation) {
+        inputRotation = rotation;
+    }
+
+    public void CancelLook() {
+        inputRotation = Vector2.zero;
+    }
+
+    public void Crouch() {
+        isCrouched = true;
+    }
+
+    public void CancelCrouch() {
+        isCrouched = false;
+    }
+
+    public void Run() {
+        isRunning = true;
+    }
+
+    public void CancelRun() {
+        isRunning = false;
+    }
 
     /**
      * Moves the parent transform on the x/z plane on an accelleration-based model

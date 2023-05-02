@@ -14,9 +14,9 @@ public class Pawn : MonoBehaviour
 
     private EquipableInventory equipableInventory;
 
-    private MovementController movementController;
-    private WeaponController weaponController;
-    private EquipmentController equipmentController;
+    public MovementController movementController;
+    public WeaponController weaponController;
+    public EquipmentController equipmentController;
 
     private void Start() {
         if (!TryGetComponent<EquipableInventory>(out equipableInventory)) {
@@ -31,9 +31,6 @@ public class Pawn : MonoBehaviour
         if (!TryGetComponent<EquipmentController>(out equipmentController)) {
             Debug.LogError("Missing Required Component: Equipment Controller");
         }
-
-
-
     }
 
     public void Posess() {

@@ -125,6 +125,15 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Posess"",
+                    ""type"": ""Button"",
+                    ""id"": ""39fee00a-557b-49e2-9a97-be9c6f11fc55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -406,7 +415,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""57fad50d-1f3d-4974-958e-af21fc69b478"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""path"": ""<Gamepad>/dpad/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -521,6 +530,28 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""711f854d-1b6e-46c3-8ce0-9636fd1ab4d0"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Posess"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""857dbf18-253a-4962-9523-6d4bf37d5f04"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Posess"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1119,6 +1150,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         m_Player_WeaponSelect = m_Player.FindAction("WeaponSelect", throwIfNotFound: true);
         m_Player_EquipmentSelect = m_Player.FindAction("EquipmentSelect", throwIfNotFound: true);
         m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
+        m_Player_Posess = m_Player.FindAction("Posess", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1203,6 +1235,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_WeaponSelect;
     private readonly InputAction m_Player_EquipmentSelect;
     private readonly InputAction m_Player_Walk;
+    private readonly InputAction m_Player_Posess;
     public struct PlayerActions
     {
         private @FA_InputActions m_Wrapper;
@@ -1218,6 +1251,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         public InputAction @WeaponSelect => m_Wrapper.m_Player_WeaponSelect;
         public InputAction @EquipmentSelect => m_Wrapper.m_Player_EquipmentSelect;
         public InputAction @Walk => m_Wrapper.m_Player_Walk;
+        public InputAction @Posess => m_Wrapper.m_Player_Posess;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1260,6 +1294,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @Walk.started += instance.OnWalk;
             @Walk.performed += instance.OnWalk;
             @Walk.canceled += instance.OnWalk;
+            @Posess.started += instance.OnPosess;
+            @Posess.performed += instance.OnPosess;
+            @Posess.canceled += instance.OnPosess;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1297,6 +1334,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @Walk.started -= instance.OnWalk;
             @Walk.performed -= instance.OnWalk;
             @Walk.canceled -= instance.OnWalk;
+            @Posess.started -= instance.OnPosess;
+            @Posess.performed -= instance.OnPosess;
+            @Posess.canceled -= instance.OnPosess;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1490,6 +1530,7 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         void OnWeaponSelect(InputAction.CallbackContext context);
         void OnEquipmentSelect(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
+        void OnPosess(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

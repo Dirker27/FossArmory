@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 8307440869438467119}
   m_Layer: 2
   m_Name: Pawn
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,7 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ada933cab384e246ab8d22d75b0727b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputSource: 0
+  inputSource: 1
+  movementController: {fileID: 0}
+  weaponController: {fileID: 0}
+  equipmentController: {fileID: 0}
 --- !u!114 &5548993137501472821
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225771544161067099}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1abe8294f25a2c34981f18e560f06974, type: 3}
   m_Name: 
@@ -386,6 +389,8 @@ MonoBehaviour:
   isWalking: 0
   isRunning: 0
   isCrouched: 0
+  inputMovement: {x: 0, y: 0}
+  inputRotation: {x: 0, y: 0}
   animator: {fileID: 6867068671394926474}
   isArmed: 0
   isAiming: 0
