@@ -6,7 +6,7 @@ using UnityEngine;
  * A Generic Pawn Actor - A Character/Entity that can be controlled by a player or
  *   a similar posessing entity.
  *   
- * Can be "possessed" by users during runtime.
+ * Can be "possessed" by players (local or remote) during runtime.
  */
 public class Pawn : MonoBehaviour
 {
@@ -35,5 +35,9 @@ public class Pawn : MonoBehaviour
 
     public void Posess() {
         inputSource = InputSource.Player;
+    }
+
+    public void Release() {
+        inputSource = InputSource.Bot;
     }
 }

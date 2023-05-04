@@ -5,7 +5,7 @@ using UnityEngine;
 /**
  * A simple movement controller that moves relative to a provided target location.
  * 
- * Depends on TargetProvider
+ * Requires a TargetProvider to provide a point to turn towards and move relative to.
  */
 public class SimpleMovementController : MovementController
 {

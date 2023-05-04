@@ -10,26 +10,35 @@ public class WeaponController : MonoBehaviour
 {
     public List<Weapon> activeWeapons = new List<Weapon>();
 
+    public bool isReady = false;
+    public bool isAiming = false;
+
     public void Ready()
     {
+        isReady = true;
+
         foreach (Weapon weapon in activeWeapons)
         {
             Debug.Log("[Player Action] READYING WEAPON: [" + weapon.name + "]");
-            weapon.Ready();
+            weapon.Arm();
         }
     }
 
     public void CancelReady()
     {
+        isReady = false;
+
         foreach (Weapon weapon in activeWeapons)
         {
             Debug.Log("[Player Action] UN-READYING WEAPON: [" + weapon.name + "]");
-            weapon.CancelReady();
+            weapon.CancelArm();
         }
     }
 
     public void Aim()
     {
+        isAiming = true;
+
         foreach (Weapon weapon in activeWeapons)
         {
             Debug.Log("[Player Action] AIMING WEAPON: [" + weapon.name + "]");
@@ -39,6 +48,8 @@ public class WeaponController : MonoBehaviour
 
     public void CancelAim()
     {
+        isAiming = false;
+
         foreach (Weapon weapon in activeWeapons)
         {
             Debug.Log("[Player Action] UN-AIMING WEAPON: [" + weapon.name + "]");

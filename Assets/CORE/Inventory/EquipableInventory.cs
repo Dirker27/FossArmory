@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 /**
- * Manages equipment currently stored on a given pawn's body.
+ * Manages equipment currently stored on a given Pawn's body.
  * 
  * Requires MountPoints to visibly store weapons.
  */
@@ -30,30 +30,30 @@ public class EquipableInventory : MonoBehaviour
     public void Start() {
         if (primaryWeapon) {
             if (!primaryWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Primary Weapon...");
+                Debug.Log("Instantiating Primary Weapon [" + primaryWeapon.name + "]");
                 primaryWeapon = GameObject.Instantiate(primaryWeapon, transform);
             }
-            EquipWeapon(primaryWeapon);            
+            EquipToPrimaryWeaponHand(primaryWeapon);            
         }
 
         if (holsteredWeapon) {
             if (!holsteredWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Secondary Weapon...");
+                Debug.Log("Instantiating Secondary Weapon [" + holsteredWeapon.name + "]");
                 holsteredWeapon = GameObject.Instantiate(holsteredWeapon, transform);
             }
-            HolsterWeapon(holsteredWeapon);
+            EquipToSecondaryHolster(holsteredWeapon);
         }
 
         if (backWeapon) {
             if (!backWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Back Weapon...");
+                Debug.Log("Instantiating Back Weapon [" + backWeapon.name + "]");
                 backWeapon = GameObject.Instantiate(backWeapon, transform);
             }
-            BackWeapon(backWeapon);
+            EquipToBack(backWeapon);
         }
     }
 
-    public void EquipWeapon(Weapon weapon) {
+    public void EquipToPrimaryWeaponHand(Weapon weapon) {
         currentWeapon = weapon;
 
         if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
@@ -61,7 +61,7 @@ public class EquipableInventory : MonoBehaviour
         }
     }
 
-    public void HolsterWeapon(Weapon weapon) {
+    public void EquipToSecondaryHolster(Weapon weapon) {
         holsteredWeapon = weapon;
 
         if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
@@ -69,7 +69,7 @@ public class EquipableInventory : MonoBehaviour
         }
     }
 
-    public void BackWeapon(Weapon weapon) {
+    public void EquipToBack(Weapon weapon) {
         backWeapon = weapon;
 
         if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {

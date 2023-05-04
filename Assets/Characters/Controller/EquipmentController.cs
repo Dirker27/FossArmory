@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 
 /**
  * Manages active and stored equipment for a given pawn
+ * 
+ * Requires an EquipableInventory to store weapons and equipment on a given Pawn's hardpoints.
  */
 public class EquipmentController : MonoBehaviour
 {
     private EquipableInventory equipableInventory;
-
-    public bool receivePlayerInput = false;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,8 @@ public class EquipmentController : MonoBehaviour
         Debug.Log("Swapping Weapons...");
 
         Weapon currentWeapon = equipableInventory.currentWeapon;
-        equipableInventory.EquipWeapon(equipableInventory.holsteredWeapon);
-        equipableInventory.HolsterWeapon(currentWeapon);
+        equipableInventory.EquipToPrimaryWeaponHand(equipableInventory.holsteredWeapon);
+        equipableInventory.EquipToSecondaryHolster(currentWeapon);
     }
 
     public void EquipmentSwap() {

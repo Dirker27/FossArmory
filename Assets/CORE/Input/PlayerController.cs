@@ -28,8 +28,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputDelegate = new InputDelegate();
-        inputDelegate.BindInputActions(inputActions);
+        inputDelegate = new InputDelegate(inputActions);
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject) {
@@ -52,5 +51,10 @@ public class PlayerController : MonoBehaviour
 
     void PosessPawn(Pawn pawn) {
         inputDelegate.BindInputToPawn(activePawn);
+    }
+
+    void ReleasePawn(Pawn pawn) {
+        inputDelegate.Release();
+        pawn.Release();
     }
 }

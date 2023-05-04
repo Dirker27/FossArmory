@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * A generic weapon that can be equipped and used by Pawns
+ */
 public abstract class Weapon : MonoBehaviour,
     Equipable, Usable
 {
@@ -34,12 +37,12 @@ public abstract class Weapon : MonoBehaviour,
         Fire();
     }
 
-    public void Ready()
+    public void Arm()
     {
         isArmed = true;
     }
 
-    public void CancelReady()
+    public void CancelArm()
     {
         isArmed = false;
     }

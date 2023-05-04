@@ -1,33 +1,44 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public class InputDelegate {
+
+    private FA_InputActions inputActions;
 
     public MovementController movementController;
     public EquipmentController equipmentController;
     public WeaponController weaponController;
 
-    public void BindInputToPawn(Pawn pawn) {
-        if (pawn) {
-            movementController = pawn.movementController;
-            equipmentController = pawn.equipmentController;
-            weaponController = pawn.weaponController;
-        } else {
-            movementController = null;
-            equipmentController = null;
-            weaponController = null;
-        }
+    public InputDelegate(FA_InputActions inputActions) {
+        this.inputActions = inputActions;
+        BindInputActions();
     }
 
-    public void BindInputActions(FA_InputActions inputActions) {
+    public void BindInputToPawn(Pawn pawn) {
+        movementController = pawn.movementController;
+        equipmentController = pawn.equipmentController;
+        weaponController = pawn.weaponController;
+    }
+
+    public void Release() {
+        movementController = null;
+        equipmentController = null;
+        weaponController = null;
+    }
+
+    public void BindInputActions() {
 
         //- MOVEMENT CONTROLLER --------------------------=
         //
         // Movement
         inputActions.Player.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
         inputActions.Player.Move.canceled += ctx => CancelMove();
+        // Walk
+        inputActions.Player.Walk.performed += ctx => Walk();
+        inputActions.Player.Walk.canceled += ctx => CancelWalk();
         // Sprint
         inputActions.Player.Run.performed += ctx => Run();
         inputActions.Player.Run.canceled += ctx => CancelRun();
@@ -80,6 +91,16 @@ public class InputDelegate {
         movementController.CancelLook();
     }
 
+    private void Walk() {
+        if (!movementController) { return; }
+        movementController.Walk();
+    }
+
+    private void CancelWalk() {
+        if (!movementController) { return; }
+        movementController.CancelWalk();
+    }
+
     private void Run() {
         if (!movementController) { return; }
         movementController.Run();
@@ -120,7 +141,7 @@ public class InputDelegate {
 
     private void ReadyWeapon() {
         if (!weaponController) { return; }
-        weaponController.CancelReady();
+        weaponController.Ready();
     }
 
     private void CancelReadyWeapon() {

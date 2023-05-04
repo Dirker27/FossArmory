@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = timeScale;
     }
 
+    [Obsolete("Use a PlayerController instead.")]
     public static FA_InputActions GetInputActions()
     {
         return PlayerController.GetInputActions() ;

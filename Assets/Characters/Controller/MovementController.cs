@@ -19,8 +19,8 @@ public class MovementController : MonoBehaviour
     public Vector2 inputMovement = Vector2.zero;
     public Vector2 inputRotation = Vector2.zero;
 
-    protected Vector3 currentMovementVelocity = Vector3.zero;
-    protected float currentRotationVelocity = 0f;
+    public Vector3 currentMovementVelocity = Vector3.zero;
+    public float currentRotationVelocity = 0f;
 
     private Vector3 decellerationJerk = Vector3.zero;
     private static float ZERO_THRESHOLD = 0.03f;
@@ -47,6 +47,14 @@ public class MovementController : MonoBehaviour
 
     public void CancelCrouch() {
         isCrouched = false;
+    }
+
+    public void Walk() {
+        isWalking = true;
+    }
+
+    public void CancelWalk() {
+        isWalking = false;
     }
 
     public void Run() {
