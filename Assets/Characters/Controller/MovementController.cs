@@ -7,6 +7,7 @@ public class MovementController : MonoBehaviour
     public float movementAccelleration = 5f;
     public float movementDecelleration = 3f;
 
+    // TODO: Migrate walking/running/crouching speeds to Humanoid Controller
     public float walkingSpeed = 1f;
     public float joggingSpeed = 3f;
     public float runningSpeed = 7f;

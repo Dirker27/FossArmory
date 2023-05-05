@@ -37,14 +37,12 @@ public class InputDelegate {
         inputActions.Player.Move.performed += ctx => Move(ctx.ReadValue<Vector2>());
         inputActions.Player.Move.canceled += ctx => CancelMove();
         // Walk
-        inputActions.Player.Walk.performed += ctx => Walk();
-        inputActions.Player.Walk.canceled += ctx => CancelWalk();
+        inputActions.Player.Walk.performed += ctx => ToggleWalk();
         // Sprint
         inputActions.Player.Run.performed += ctx => Run();
         inputActions.Player.Run.canceled += ctx => CancelRun();
         // Crouch
-        inputActions.Player.Crouch.performed += ctx => Crouch();
-        inputActions.Player.Crouch.canceled += ctx => CancelCrouch();
+        inputActions.Player.Crouch.performed += ctx => ToggleCrouch();
         // Rotation
         inputActions.Player.Look.performed += ctx => Look(ctx.ReadValue<Vector2>());
         inputActions.Player.Look.canceled += ctx => CancelLook();
@@ -53,12 +51,15 @@ public class InputDelegate {
         //
         inputActions.Player.WeaponSelect.performed += ctx => WeaponSwap();
         inputActions.Player.EquipmentSelect.performed += ctx => EquipmentSwap();
+        //
+        inputActions.Player.EquipPrimary.performed += ctx => EquipPrimary();
+        inputActions.Player.EquipSecondary.performed += ctx => EquipSecondary();
+        inputActions.Player.EquipTertiary.performed += ctx => EquipTertiary();
 
         //- WEAPON CONTROLLER ----------------------------=
         //
         // Fire Weapon
-        inputActions.Player.Ready.performed += ctx => ReadyWeapon();
-        inputActions.Player.Ready.canceled += ctx => CancelReadyWeapon();
+        inputActions.Player.Ready.performed += ctx => ToggleReadyWeapon();
         // Fire Weapon
         inputActions.Player.Aim.performed += ctx => AimWeapon();
         inputActions.Player.Aim.canceled += ctx => CancelAimWeapon();
@@ -91,14 +92,14 @@ public class InputDelegate {
         movementController.CancelLook();
     }
 
-    private void Walk() {
+    private void ToggleWalk() {
         if (!movementController) { return; }
-        movementController.Walk();
-    }
-
-    private void CancelWalk() {
-        if (!movementController) { return; }
-        movementController.CancelWalk();
+        
+        if (movementController.isWalking) {
+            movementController.CancelWalk();
+        } else {
+            movementController.Walk();
+        }
     }
 
     private void Run() {
@@ -111,14 +112,14 @@ public class InputDelegate {
         movementController.CancelRun();
     }
 
-    private void Crouch() {
+    private void ToggleCrouch() {
         if (!movementController) { return; }
-        movementController.Crouch();
-    }
-
-    private void CancelCrouch() {
-        if (!movementController) { return; }
-        movementController.CancelCrouch();
+        
+        if (movementController.isCrouched) {
+            movementController.CancelCrouch();
+        } else {
+            movementController.Crouch();
+        }
     }
 
     /* ==============================================================
@@ -135,18 +136,35 @@ public class InputDelegate {
         equipmentController.EquipmentSwap();
     }
 
+    private void EquipPrimary() {
+        if (!equipmentController) { return; }
+        equipmentController.EquipPrimary();
+    }
+
+    private void EquipSecondary() {
+        if (!equipmentController) { return; }
+        equipmentController.EquipSecondary();
+    }
+
+    private void EquipTertiary() {
+        if (!equipmentController) { return; }
+        equipmentController.EquipTertiary();
+    }
+
     /* ==============================================================
      * WEAPON CONTROLLER ACTIONS
      * ============================================================ */
 
-    private void ReadyWeapon() {
-        if (!weaponController) { return; }
-        weaponController.Ready();
-    }
+    private void ToggleReadyWeapon() {
+        if (!weaponController || !equipmentController) { return; }
 
-    private void CancelReadyWeapon() {
-        if (!weaponController) { return; }
-        weaponController.CancelReady();
+        if(weaponController.isReady) {
+            equipmentController.UnReady();
+            weaponController.CancelReady();
+        } else {
+            equipmentController.Ready();
+            weaponController.Ready();
+        }
     }
 
     private void AimWeapon() {

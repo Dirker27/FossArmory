@@ -8,72 +8,57 @@ using UnityEngine;
  * 
  * Requires MountPoints to visibly store weapons.
  */
-public class EquipableInventory : MonoBehaviour
-{
-    public Loadout loadout;
-
-    public Weapon currentWeapon;
-
-    public Weapon primaryWeapon;
-    public Weapon holsteredWeapon;
-    public Weapon backWeapon;
-
-    public Throwable tacticalThrowable;
-    public Throwable lethalThrowable;
+public class EquipableInventory : MonoBehaviour {
+    public MountPoint primaryWeaponHand;
+    public MountPoint secondaryWeaponHand;
 
     public MountPoint leftHolster;
     public MountPoint rightHolster;
     public MountPoint backHolster;
-    public MountPoint primaryWeaponHand;
-    public MountPoint secondaryWeaponHand;
-
-    public void Start() {
-        if (primaryWeapon) {
-            if (!primaryWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Primary Weapon [" + primaryWeapon.name + "]");
-                primaryWeapon = GameObject.Instantiate(primaryWeapon, transform);
-            }
-            EquipToPrimaryWeaponHand(primaryWeapon);            
-        }
-
-        if (holsteredWeapon) {
-            if (!holsteredWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Secondary Weapon [" + holsteredWeapon.name + "]");
-                holsteredWeapon = GameObject.Instantiate(holsteredWeapon, transform);
-            }
-            EquipToSecondaryHolster(holsteredWeapon);
-        }
-
-        if (backWeapon) {
-            if (!backWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Back Weapon [" + backWeapon.name + "]");
-                backWeapon = GameObject.Instantiate(backWeapon, transform);
-            }
-            EquipToBack(backWeapon);
-        }
-    }
+    public MountPoint rightBeltHolster;
+    public MountPoint leftBeltHolster;
+    public MountPoint rightChestHolster;
+    public MountPoint leftChestHolster;
 
     public void EquipToPrimaryWeaponHand(Weapon weapon) {
-        currentWeapon = weapon;
-
         if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(primaryWeaponHand);
         }
     }
 
-    public void EquipToSecondaryHolster(Weapon weapon) {
-        holsteredWeapon = weapon;
+    public void EquipToSecondaryWeaponHand(Weapon weapon) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
+            m.Mount(secondaryWeaponHand);
+        }
+    }
 
+    public void EquipToPrimaryHolster(Weapon weapon) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
+            m.Mount(rightHolster);
+        }
+    }
+
+    public void EquipToSecondaryHolster(Weapon weapon) {
         if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(leftHolster);
         }
     }
 
-    public void EquipToBack(Weapon weapon) {
-        backWeapon = weapon;
-
+    public void EquipToBackHolster(Weapon weapon) {
         if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
             m.Mount(backHolster);
+        }
+    }
+
+    public void EquipToLethalHolster(Weapon weapon) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
+            m.Mount(rightBeltHolster);
+        }
+    }
+
+    public void EquipToTacticalHolster(Weapon weapon) {
+        if (weapon && weapon.TryGetComponent<Mountable>(out Mountable m)) {
+            m.Mount(leftBeltHolster);
         }
     }
 }

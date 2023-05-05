@@ -749,6 +749,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3071211729790793537, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
+      propertyPath: primaryWeapon
+      value: 
+      objectReference: {fileID: 5852061835101156283, guid: 5132a73b12a28af4ab3260ebbcb56b7a, type: 3}
     - target: {fileID: 5554881467766548379, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.038
@@ -822,6 +826,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3071211729790793537, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
+      propertyPath: primaryWeapon
+      value: 
+      objectReference: {fileID: 349718881518890164, guid: 2f38770f880d11146ba56f2cba31ec35, type: 3}
     - target: {fileID: 6838995923910534712, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1080,6 +1088,8 @@ MonoBehaviour:
   isCrouched: 0
   inputMovement: {x: 0, y: 0}
   inputRotation: {x: 0, y: 0}
+  currentMovementVelocity: {x: 0, y: 0, z: 0}
+  currentRotationVelocity: 0
 --- !u!1001 &1255462976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1296,21 +1306,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1603727417743252690, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
-      propertyPath: walkingSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6838995923910534712, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+    - target: {fileID: 3071211729790793537, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
+      propertyPath: primaryWeapon
       value: 
-      objectReference: {fileID: 2100000, guid: f814a35d35ecbf14cbf124eb396341b3, type: 2}
+      objectReference: {fileID: 646302134868947931, guid: ef5c72127c970b548a21b6fbf1ad849c, type: 3}
+    - target: {fileID: 3071211729790793537, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
+      propertyPath: tertiaryWeapon
+      value: 
+      objectReference: {fileID: 5852061835101156283, guid: 5132a73b12a28af4ab3260ebbcb56b7a, type: 3}
+    - target: {fileID: 3071211729790793537, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
+      propertyPath: secondaryWeapon
+      value: 
+      objectReference: {fileID: 349718881518890164, guid: 2f38770f880d11146ba56f2cba31ec35, type: 3}
     - target: {fileID: 7225771544161067099, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_Name
       value: Black Pawn (Player)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7225771544161067099, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 7671266489926052593, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_RootOrder
@@ -1355,14 +1365,6 @@ PrefabInstance:
     - target: {fileID: 7671266489926052593, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8307440869438467119, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
-      propertyPath: backWeapon
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8307440869438467119, guid: be1708fc5fe54e647bd0c747396fe256, type: 3}
-      propertyPath: holsteredWeapon
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1617,11 +1619,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81bb9eea30387e442899949a80011e55, type: 3}
   m_PrefabInstance: {fileID: 1682209408}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1682209410 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 81bb9eea30387e442899949a80011e55, type: 3}
-  m_PrefabInstance: {fileID: 1682209408}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1682209411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1645,7 +1642,8 @@ MonoBehaviour:
   isCrouched: 0
   inputMovement: {x: 0, y: 0}
   inputRotation: {x: 0, y: 0}
-  animator: {fileID: 1682209410}
+  currentMovementVelocity: {x: 0, y: 0, z: 0}
+  currentRotationVelocity: 0
   isArmed: 0
   isAiming: 0
 --- !u!1 &1684086430

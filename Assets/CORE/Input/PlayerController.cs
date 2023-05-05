@@ -30,6 +30,44 @@ public class PlayerController : MonoBehaviour
     {
         inputDelegate = new InputDelegate(inputActions);
 
+        SetActivePawnToPlayer();
+        if (activePawn) {
+            PosessPawn(activePawn);
+        } else {
+            Debug.Log("No initial player pawn set.");
+        }
+        PosessPawn(activePawn);
+
+        // TODO: Move to dedicated Pawn Posession Controller
+        inputActions.Player.Posess.performed += ctx => TogglePosess();
+    }
+
+    public static FA_InputActions GetInputActions() {
+        return inputActions;
+    }
+
+    public void PosessPawn(Pawn pawn) {
+        activePawn = pawn;
+        inputDelegate.BindInputToPawn(activePawn);
+    }
+
+    public void ReleaseActivePawn() {
+        inputDelegate.Release();
+        activePawn.Release();
+
+        activePawn = null;
+    }
+
+    void TogglePosess() {
+        if (activePawn) {
+            ReleaseActivePawn();
+        } else {
+            SetActivePawnToPlayer();
+            PosessPawn(activePawn);
+        }
+    }
+
+    private void SetActivePawnToPlayer() {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject) {
             Pawn pawn = playerObject.GetComponent<Pawn>();
@@ -37,24 +75,5 @@ public class PlayerController : MonoBehaviour
                 activePawn = pawn;
             }
         }
-
-        if (activePawn) {
-            PosessPawn(activePawn);
-        } else {
-            Debug.Log("No Player Pawn Set!");
-        }
-    }
-
-    public static FA_InputActions GetInputActions() {
-        return inputActions;
-    }
-
-    void PosessPawn(Pawn pawn) {
-        inputDelegate.BindInputToPawn(activePawn);
-    }
-
-    void ReleasePawn(Pawn pawn) {
-        inputDelegate.Release();
-        pawn.Release();
     }
 }

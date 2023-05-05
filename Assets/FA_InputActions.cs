@@ -134,6 +134,33 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipPrimary"",
+                    ""type"": ""Button"",
+                    ""id"": ""2221abdc-c3d1-40e8-a76b-32ea2c081cea"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipSecondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5936c80-bd81-4ba9-9c3a-cb2b354807b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EquipTertiary"",
+                    ""type"": ""Button"",
+                    ""id"": ""d01a501b-82fc-4893-b2b3-931ec741911d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -552,6 +579,39 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Posess"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6f904854-309a-4aa9-9e1e-091122ba983f"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""EquipPrimary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fe873ef4-d549-48a4-bf41-02251c39f82b"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EquipSecondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c14e833-7811-4e38-8e9e-e564663e404c"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EquipTertiary"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1151,6 +1211,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         m_Player_EquipmentSelect = m_Player.FindAction("EquipmentSelect", throwIfNotFound: true);
         m_Player_Walk = m_Player.FindAction("Walk", throwIfNotFound: true);
         m_Player_Posess = m_Player.FindAction("Posess", throwIfNotFound: true);
+        m_Player_EquipPrimary = m_Player.FindAction("EquipPrimary", throwIfNotFound: true);
+        m_Player_EquipSecondary = m_Player.FindAction("EquipSecondary", throwIfNotFound: true);
+        m_Player_EquipTertiary = m_Player.FindAction("EquipTertiary", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1236,6 +1299,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_EquipmentSelect;
     private readonly InputAction m_Player_Walk;
     private readonly InputAction m_Player_Posess;
+    private readonly InputAction m_Player_EquipPrimary;
+    private readonly InputAction m_Player_EquipSecondary;
+    private readonly InputAction m_Player_EquipTertiary;
     public struct PlayerActions
     {
         private @FA_InputActions m_Wrapper;
@@ -1252,6 +1318,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         public InputAction @EquipmentSelect => m_Wrapper.m_Player_EquipmentSelect;
         public InputAction @Walk => m_Wrapper.m_Player_Walk;
         public InputAction @Posess => m_Wrapper.m_Player_Posess;
+        public InputAction @EquipPrimary => m_Wrapper.m_Player_EquipPrimary;
+        public InputAction @EquipSecondary => m_Wrapper.m_Player_EquipSecondary;
+        public InputAction @EquipTertiary => m_Wrapper.m_Player_EquipTertiary;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1297,6 +1366,15 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @Posess.started += instance.OnPosess;
             @Posess.performed += instance.OnPosess;
             @Posess.canceled += instance.OnPosess;
+            @EquipPrimary.started += instance.OnEquipPrimary;
+            @EquipPrimary.performed += instance.OnEquipPrimary;
+            @EquipPrimary.canceled += instance.OnEquipPrimary;
+            @EquipSecondary.started += instance.OnEquipSecondary;
+            @EquipSecondary.performed += instance.OnEquipSecondary;
+            @EquipSecondary.canceled += instance.OnEquipSecondary;
+            @EquipTertiary.started += instance.OnEquipTertiary;
+            @EquipTertiary.performed += instance.OnEquipTertiary;
+            @EquipTertiary.canceled += instance.OnEquipTertiary;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1337,6 +1415,15 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
             @Posess.started -= instance.OnPosess;
             @Posess.performed -= instance.OnPosess;
             @Posess.canceled -= instance.OnPosess;
+            @EquipPrimary.started -= instance.OnEquipPrimary;
+            @EquipPrimary.performed -= instance.OnEquipPrimary;
+            @EquipPrimary.canceled -= instance.OnEquipPrimary;
+            @EquipSecondary.started -= instance.OnEquipSecondary;
+            @EquipSecondary.performed -= instance.OnEquipSecondary;
+            @EquipSecondary.canceled -= instance.OnEquipSecondary;
+            @EquipTertiary.started -= instance.OnEquipTertiary;
+            @EquipTertiary.performed -= instance.OnEquipTertiary;
+            @EquipTertiary.canceled -= instance.OnEquipTertiary;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1531,6 +1618,9 @@ public partial class @FA_InputActions: IInputActionCollection2, IDisposable
         void OnEquipmentSelect(InputAction.CallbackContext context);
         void OnWalk(InputAction.CallbackContext context);
         void OnPosess(InputAction.CallbackContext context);
+        void OnEquipPrimary(InputAction.CallbackContext context);
+        void OnEquipSecondary(InputAction.CallbackContext context);
+        void OnEquipTertiary(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
