@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8141452973034260179}
   - component: {fileID: 5852061835101156283}
   - component: {fileID: 7993100738003445964}
-  - component: {fileID: 8123390471576061217}
   m_Layer: 0
   m_Name: FGC-9_Weapon
   m_TagString: Untagged
@@ -141,22 +140,6 @@ MonoBehaviour:
   mountOffset: {x: 0, y: 0, z: 0}
   applyRotation: 1
   captureOffsetOnStart: 0
---- !u!114 &8123390471576061217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117753520527633602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargetLockEnabled: 0
-  targetProvider: {fileID: 0}
-  targetRotation: {x: 0, y: 0, z: 0}
-  smoothTime: 0.1
 --- !u!1 &2812848947766657115
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +151,7 @@ GameObject:
   - component: {fileID: 4073792010141350179}
   - component: {fileID: 4310741139139391299}
   - component: {fileID: 9027670109555884297}
+  - component: {fileID: 4017255716817004240}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -240,6 +224,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4017255716817004240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2812848947766657115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTargetLockEnabled: 1
+  targetProvider: {fileID: 0}
+  targetRotation: {x: 0, y: 0, z: 0}
+  smoothTime: 0.1
 --- !u!1 &3302713315813233803
 GameObject:
   m_ObjectHideFlags: 0

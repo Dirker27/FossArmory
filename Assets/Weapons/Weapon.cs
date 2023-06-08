@@ -18,10 +18,7 @@ public abstract class Weapon : MonoBehaviour,
     private Mountable mountable;
 
     void Start() {
-        if (!TryGetComponent<WeaponAim>(out weaponAim)) {
-            Debug.LogError("Missing Required Component: WeaponAim");
-        }
-
+        TryGetComponent<WeaponAim>(out weaponAim);
         TryGetComponent<Mountable>(out mountable);
     }
 
@@ -37,12 +34,12 @@ public abstract class Weapon : MonoBehaviour,
         Fire();
     }
 
-    public void Arm()
+    public virtual void Arm()
     {
         isArmed = true;
     }
 
-    public void CancelArm()
+    public virtual void CancelArm()
     {
         isArmed = false;
     }
@@ -50,7 +47,7 @@ public abstract class Weapon : MonoBehaviour,
     public void Aim()
     {
         isAiming = true;
-        if (weaponAim) { weaponAim.SetTargetLock(true); }
+        if (weaponAim) { weaponAim.SetTargetLockEnabled(true); }
 
         if (mountable) {
             mountable.applyRotation = false;
@@ -60,7 +57,7 @@ public abstract class Weapon : MonoBehaviour,
     public void CancelAim()
     {
         isAiming = false;
-        if (weaponAim) { weaponAim.SetTargetLock(false); }
+        if (weaponAim) { weaponAim.SetTargetLockEnabled(false); }
 
         if (mountable) {
             mountable.applyRotation = true;

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1539652842604359239}
   - component: {fileID: 1213932896965386355}
   - component: {fileID: 349718881518890164}
-  - component: {fileID: 2738094874194811410}
   m_Layer: 0
   m_Name: Gecko_Weapon
   m_TagString: Untagged
@@ -119,22 +118,6 @@ MonoBehaviour:
   projectileParent: {fileID: 0}
   launchForce: 0
   launchVelocity: 0
---- !u!114 &2738094874194811410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433513845195551583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargetLockEnabled: 0
-  targetProvider: {fileID: 0}
-  targetRotation: {x: 0, y: 0, z: 0}
-  smoothTime: 0.1
 --- !u!1 &3164936326266934177
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +221,7 @@ GameObject:
   - component: {fileID: 7934875255550724645}
   - component: {fileID: 1199460911359425721}
   - component: {fileID: 1959493642708686391}
+  - component: {fileID: 5875518200292015100}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -310,6 +294,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5875518200292015100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551720051468544117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTargetLockEnabled: 1
+  targetProvider: {fileID: 0}
+  targetRotation: {x: 0, y: 0, z: 0}
+  smoothTime: 0.1
 --- !u!1 &8746484333852695088
 GameObject:
   m_ObjectHideFlags: 0

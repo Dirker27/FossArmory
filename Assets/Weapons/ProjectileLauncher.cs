@@ -25,7 +25,7 @@ public class ProjectileLauncher : Weapon
 
     public override void Fire()
     {
-        Projectile projectile = GameObject.Instantiate(projectileTemplate, launchPoint.position, transform.rotation);
+        Projectile projectile = GameObject.Instantiate(projectileTemplate, launchPoint.position, launchPoint.transform.rotation);
         projectile.transform.parent = projectileParent;
 
         if (animator)
@@ -37,6 +37,26 @@ public class ProjectileLauncher : Weapon
     public override void CancelFire() {
         if (animator) {
             animator.SetBool("isFiring", false);
+        }
+    }
+
+    public override void Arm() {
+        base.Arm();
+
+        WeaponAim weaponAim = null;
+        if (launchPoint.TryGetComponent<WeaponAim>(out weaponAim)) {
+            Debug.Log(String.Format("[{0}] Enabling Weapon Aim.", name));
+            weaponAim.SetTargetLockEnabled(true);
+        }
+    }
+
+    public override void CancelArm() {
+        base.CancelArm();
+        
+        WeaponAim weaponAim = null;
+        if (launchPoint.TryGetComponent<WeaponAim>(out weaponAim)) {
+            Debug.Log(String.Format("[{0}] Disabling Weapon Aim.", name));
+            weaponAim.SetTargetLockEnabled(false);
         }
     }
 }

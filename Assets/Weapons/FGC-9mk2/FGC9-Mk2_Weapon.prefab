@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 6621883716891847163}
   - component: {fileID: 1159878856179579060}
   - component: {fileID: 6035844769064963236}
+  - component: {fileID: 5280057160603891988}
   m_Layer: 0
   m_Name: Muzzle
   m_TagString: Untagged
@@ -221,6 +222,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5280057160603891988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8646022471817077226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTargetLockEnabled: 1
+  targetProvider: {fileID: 0}
+  targetRotation: {x: 0, y: 0, z: 0}
+  smoothTime: 0.1
 --- !u!1 &9129999174247187412
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +249,6 @@ GameObject:
   - component: {fileID: 4001012227648007719}
   - component: {fileID: 8763535760492889072}
   - component: {fileID: 646302134868947931}
-  - component: {fileID: 2287040790178317732}
   - component: {fileID: 8719621086542071516}
   m_Layer: 0
   m_Name: FGC9-Mk2_Weapon
@@ -302,22 +318,6 @@ MonoBehaviour:
   projectileParent: {fileID: 0}
   launchForce: 1
   launchVelocity: 1
---- !u!114 &2287040790178317732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9129999174247187412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abb32951d66e15f45b38c746448d0efd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTargetLockEnabled: 0
-  targetProvider: {fileID: 0}
-  targetRotation: {x: 0, y: 0, z: 0}
-  smoothTime: 0.1
 --- !u!114 &8719621086542071516
 MonoBehaviour:
   m_ObjectHideFlags: 0

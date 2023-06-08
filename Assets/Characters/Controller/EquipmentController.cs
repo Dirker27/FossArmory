@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
  */
 public class EquipmentController : MonoBehaviour
 {
-    public EquipmentSlot activeEquipment;
+    public EquipmentSlot activeEquipmentSlot;
 
     private EquipableInventory equipableInventory;
     private WeaponController weaponController;
@@ -36,15 +36,18 @@ public class EquipmentController : MonoBehaviour
         equipableInventory.EquipToSecondaryHolster(loadout.secondaryWeapon);
         equipableInventory.EquipToBackHolster(loadout.tertiaryWeapon);
 
-        activeEquipment = EquipmentSlot.None;
+        activeEquipmentSlot = EquipmentSlot.None;
     }
 
     public void Ready() {
         equipableInventory.EquipToPrimaryWeaponHand(loadout.primaryWeapon);
+        
         weaponController.activeWeapons.Add(loadout.primaryWeapon);
+        weaponController.Ready();
     }
 
     public void UnReady() {
+        weaponController.CancelReady();
         weaponController.activeWeapons.Clear();
 
         equipableInventory.EquipToPrimaryHolster(loadout.primaryWeapon);
@@ -76,7 +79,7 @@ public class EquipmentController : MonoBehaviour
     public void WeaponSwap() {
         Debug.Log("Swapping Weapons...");
 
-        int nextSlot = ((int)activeEquipment) + 1 % 5;
+        int nextSlot = ((int)activeEquipmentSlot) + 1 % 5;
 
         UnequipActive();
         EquipAndArm((EquipmentSlot)nextSlot);
@@ -124,9 +127,9 @@ public class EquipmentController : MonoBehaviour
     }
 
     private void UnequipActive() {
-        if (activeEquipment == EquipmentSlot.None) { return; }
+        if (activeEquipmentSlot == EquipmentSlot.None) { return; }
 
-        switch (activeEquipment) {
+        switch (activeEquipmentSlot) {
             case EquipmentSlot.PrimaryWeapon:
                 equipableInventory.EquipToPrimaryHolster(loadout.primaryWeapon);
                 break;
@@ -144,17 +147,19 @@ public class EquipmentController : MonoBehaviour
                 break;
             case EquipmentSlot.None:
             default:
-                return;
+                break;
         }
 
         weaponController.activeWeapons.Clear();
-        activeEquipment = EquipmentSlot.None;
+        activeEquipmentSlot = EquipmentSlot.None;
     }
     private void EquipAndArm(EquipmentSlot equipmentSlot) {
         Weapon weapon = loadout.GetWeaponFromEquipmentSlot(equipmentSlot);
 
         equipableInventory.EquipToPrimaryWeaponHand(weapon);
         weaponController.activeWeapons.Add(weapon);
-        activeEquipment = equipmentSlot;
+        activeEquipmentSlot = equipmentSlot;
+
+        weapon.Equip();
     }
 }

@@ -11,16 +11,20 @@ public class WeaponAim : MonoBehaviour
     public Vector3 targetRotation = Vector3.zero;
 
     public float smoothTime = 0.1f;
-    private Vector3 turnVelocity;
 
     void Start()
     {
-        turnVelocity = Vector3.zero;
+        if (!targetProvider) {
+            targetProvider = GameManager.GetMainCamera().GetComponent<TargetProvider>();
+        }
     }
 
     void Update()
     {
-        if (targetProvider == null) { return; }
+        // default to parent-forward
+        if (!isTargetLockEnabled) {
+            transform.forward = transform.parent.forward;
+        }
 
         if (!targetProvider.IsTargetingLocationValid())
         {
@@ -29,16 +33,17 @@ public class WeaponAim : MonoBehaviour
 
         targetRotation = targetProvider.GetTargetingRay().direction;
 
-        //Vector3 rotation = Vector3.SmoothDamp(transform.rotation.eulerAngles, targetRotation, ref velocity, smoothTime);
-        //transform.rotation.SetLookRotation(targetRotation);
-
         if (targetProvider.IsTargetingLocationValid())
         {
             transform.LookAt(targetProvider.GetTargetingLocation(), Vector3.up);
         }
     }
 
-    public void SetTargetLock(bool targetLockEnabled)
+    public void SetTargetProvider(TargetProvider targetProvider) {
+        this.targetProvider = targetProvider;
+    }
+
+    public void SetTargetLockEnabled(bool targetLockEnabled)
     {
         this.isTargetLockEnabled = targetLockEnabled;
     }
