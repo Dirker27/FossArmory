@@ -40,6 +40,7 @@ public class EquipmentController : MonoBehaviour
     }
 
     public void Ready() {
+        activeEquipmentSlot = EquipmentSlot.PrimaryWeapon;
         equipableInventory.EquipToPrimaryWeaponHand(loadout.primaryWeapon);
         
         weaponController.activeWeapons.Add(loadout.primaryWeapon);
@@ -53,6 +54,9 @@ public class EquipmentController : MonoBehaviour
         equipableInventory.EquipToPrimaryHolster(loadout.primaryWeapon);
         equipableInventory.EquipToSecondaryHolster(loadout.secondaryWeapon);
         equipableInventory.EquipToBackHolster(loadout.tertiaryWeapon);
+
+        equipableInventory.EquipToLethalHolster(loadout.lethalThrowable);
+        equipableInventory.EquipToTacticalHolster(loadout.tacticalThrowable);
     }
 
     public void EquipPrimary() {
@@ -113,14 +117,14 @@ public class EquipmentController : MonoBehaviour
 
         if (loadout.tacticalThrowable) {
             if (!loadout.tacticalThrowable.isActiveAndEnabled) {
-                Debug.Log("Instantiating Back Weapon [" + loadout.tacticalThrowable.name + "]");
+                Debug.Log("Instantiating Tactical Equipment [" + loadout.tacticalThrowable.name + "]");
                 loadout.tacticalThrowable = GameObject.Instantiate(loadout.tacticalThrowable, transform);
             }
         }
 
         if (loadout.lethalThrowable) {
             if (!loadout.lethalThrowable.isActiveAndEnabled) {
-                Debug.Log("Instantiating Back Weapon [" + loadout.lethalThrowable.name + "]");
+                Debug.Log("Instantiating LethalEquipment [" + loadout.lethalThrowable.name + "]");
                 loadout.lethalThrowable = GameObject.Instantiate(loadout.lethalThrowable, transform);
             }
         }
