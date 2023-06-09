@@ -7,15 +7,13 @@ using UnityEngine.InputSystem;
  * A Movement Controller for Humanoid Pawns.
  * 
  * Adds additional states for whether a Humanoid is armed.
+ * 
+ * TODO: Rotate relative to camera/input direction.
  */
 public class HumanoidMovementController : MovementController
 {
-    //public TargetProvider targetProvider;
 
     void Start() {
-        /*if (!targetProvider) {
-            Debug.LogError("Missing Required Component: TargetProvider");
-        }*/
     }
 
     // TODO: Migrate walking/crouching/running logic to here

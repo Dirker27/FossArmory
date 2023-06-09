@@ -3,6 +3,7 @@ using System.Collections;
 using System.Drawing;
 using System;
 
+[Obsolete("V1 Operator")]
 public class HeadTrackingController : MonoBehaviour {
 
 	public TargetProvider targetProvider;

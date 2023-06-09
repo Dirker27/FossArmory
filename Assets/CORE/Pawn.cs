@@ -23,7 +23,7 @@ public class Pawn : MonoBehaviour
             Debug.LogError("Missing Required Component: Equipable Inventory");
         }
         if (!TryGetComponent<MovementController>(out movementController)) {
-            Debug.LogError("Missing Required Component: Equipable Inventory");
+            Debug.LogError("Missing Required Component: Movement Controller");
         }
         if (!TryGetComponent<WeaponController>(out weaponController)) {
             Debug.LogError("Missing Required Component: Weapon Controller");

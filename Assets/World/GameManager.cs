@@ -7,6 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public float timeScale = 1f;
 
+    // Statically accessed to enforce that there should only be one
+    //   of these in each scene.
+    //
+    // Initialized/linked during Awake() in order to provide to downstream
+    //   consumers by the time they can call Start()
     private static GameObject mainCamera;
     private static GarbageCollector garbageCollector;
     private static PlayerController playerController;
