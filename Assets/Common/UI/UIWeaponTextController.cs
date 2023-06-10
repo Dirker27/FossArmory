@@ -13,7 +13,7 @@ public class UIWeaponTextController : MonoBehaviour
         playerController = GameManager.GetPlayerController();
 
         if (!TryGetComponent<Text>(out text)) {
-            Debug.LogError("Missing Required Component: Text");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Text");
         }
     }
     // Update is called once per frame

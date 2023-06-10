@@ -14,7 +14,7 @@ public class GenericLocomotionController : MovementController
     void Start()
     {
         if (! TryGetComponent<Animator>(out animator)) {
-            Debug.LogError("Missing Required Component: Animator");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Animator");
         }
     }
 

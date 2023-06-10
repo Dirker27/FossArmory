@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5223795065718047012}
   - component: {fileID: 7710501069109325590}
+  - component: {fileID: 495373699287210794}
   m_Layer: 0
   m_Name: Frag
   m_TagString: Untagged
@@ -47,6 +48,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isArmed: 0
   isAiming: 0
+--- !u!114 &495373699287210794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769078335801640545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770b38fe73c15b243a0680ef6fcf2fdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mountPoint: {fileID: 0}
+  mountOffset: {x: 0, y: 0, z: 0}
+  applyRotation: 0
+  captureOffsetOnStart: 0
 --- !u!1 &5105302359443877595
 GameObject:
   m_ObjectHideFlags: 0

@@ -78,10 +78,10 @@ public class Destructible : MonoBehaviour
         if (collision.rigidbody) {
             _lastHitLocation = collision.gameObject.transform.position; //collision.GetContact(0).point;
             float impactEnergy = GetKineticEnergyJoules(collision.rigidbody);
-            /*Debug.Log("IMPACT: "
+            FADebug.Log(FADebug.LogLevel.INFO, "IMPACT: "
                 + impactEnergy + "[J] | "
-                + collision.rigidbody.velocity + "[m/s], "
-                + collision.rigidbody.mass + "[kg]");*/
+                + collision.rigidbody.velocity.magnitude + "[m/s], "
+                + collision.rigidbody.mass + "[kg]");
             ApplyEnergyJoules(impactEnergy);
         }
     }

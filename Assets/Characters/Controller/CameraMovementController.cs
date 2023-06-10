@@ -38,7 +38,16 @@ public class CameraMovementController : MonoBehaviour
         //
         if (target)
         {
-            Vector3 targetPosition = target.transform.position + offset;
+            // Rotate by 2D rotation matrix
+            //   https://math.stackexchange.com/questions/1098168/about-rotating-a-vector-around-the-unit-circle-and-its-new-coordinates
+            float theta = -transform.eulerAngles.y * Mathf.Deg2Rad;
+            Vector2 rotatedOffset = VectorMath.Rotate2D(theta, new Vector2(offset.x, offset.z));
+            Vector3 adjustedOffset = new Vector3(rotatedOffset.x, 0, rotatedOffset.y);
+
+            GameManager.GetUserInterfaceController().AddConsoleVector("ADJUSTED OFFSET", adjustedOffset);
+
+            Vector3 targetPosition = target.transform.position + adjustedOffset;
+
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
         }
     }

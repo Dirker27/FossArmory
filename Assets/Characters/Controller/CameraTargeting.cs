@@ -29,10 +29,10 @@ public class CameraTargeting : TargetProvider {
         //
         // Camera
         cam = GetComponent<Camera>();
-        if (!cam) { Debug.LogError("Missing Required Component: Camera"); }
+        if (!cam) { FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Camera"); }
         // Child: Target Point
         targetPoint = GetComponentInChildren<TargetPoint>();
-        if(!targetPoint) { Debug.LogError("No TargetPoint Set!");  }
+        if(!targetPoint) { FADebug.Log(FADebug.LogLevel.ERROR, "No TargetPoint Set!");  }
 
         //- CACHE ----------------------------------------=
         _targetingPosition = Vector3.zero;

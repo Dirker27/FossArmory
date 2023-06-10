@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (!rb)
         {
-            Debug.LogError("Missing Required Component: Rigidbody");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Rigidbody");
         }
     }
 

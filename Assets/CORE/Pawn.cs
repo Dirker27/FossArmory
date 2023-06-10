@@ -20,16 +20,16 @@ public class Pawn : MonoBehaviour
 
     private void Awake() {
         if (!TryGetComponent<EquipableInventory>(out equipableInventory)) {
-            Debug.LogError("Missing Required Component: Equipable Inventory");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Equipable Inventory");
         }
         if (!TryGetComponent<MovementController>(out movementController)) {
-            Debug.LogError("Missing Required Component: Movement Controller");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Movement Controller");
         }
         if (!TryGetComponent<WeaponController>(out weaponController)) {
-            Debug.LogError("Missing Required Component: Weapon Controller");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Weapon Controller");
         }
         if (!TryGetComponent<EquipmentController>(out equipmentController)) {
-            Debug.LogError("Missing Required Component: Equipment Controller");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Equipment Controller");
         }
     }
 

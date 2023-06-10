@@ -24,15 +24,15 @@ public class HumanoidAnimationStateController : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         if (!TryGetComponent<Animator>(out animator)) {
-            Debug.LogError("Missing Required Component: Animator");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Animator");
         }
 
         if (!movementController) {
-            Debug.LogError("Missing Required Component: HumanoidMovementController");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: HumanoidMovementController");
         }
 
         if (!weaponController) {
-            Debug.LogError("Missing Required Component: WeaponController");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: WeaponController");
         }
     }
 

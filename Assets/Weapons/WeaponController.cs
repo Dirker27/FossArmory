@@ -19,7 +19,7 @@ public class WeaponController : MonoBehaviour
 
         foreach (Weapon weapon in activeWeapons)
         {
-            Debug.Log("[Player Action] READYING WEAPON: [" + weapon.name + "]");
+            FADebug.Log(FADebug.LogLevel.INFO, "[Player Action] READYING WEAPON: [" + weapon.name + "]");
             weapon.Arm();
         }
     }
@@ -30,7 +30,7 @@ public class WeaponController : MonoBehaviour
 
         foreach (Weapon weapon in activeWeapons)
         {
-            Debug.Log("[Player Action] UN-READYING WEAPON: [" + weapon.name + "]");
+            FADebug.Log(FADebug.LogLevel.INFO, "[Player Action] UN-READYING WEAPON: [" + weapon.name + "]");
             weapon.CancelArm();
         }
     }
@@ -41,7 +41,7 @@ public class WeaponController : MonoBehaviour
 
         foreach (Weapon weapon in activeWeapons)
         {
-            Debug.Log("[Player Action] AIMING WEAPON: [" + weapon.name + "]");
+            FADebug.Log(FADebug.LogLevel.INFO, "[Player Action] AIMING WEAPON: [" + weapon.name + "]");
             weapon.Aim();
         }
     }
@@ -52,7 +52,7 @@ public class WeaponController : MonoBehaviour
 
         foreach (Weapon weapon in activeWeapons)
         {
-            Debug.Log("[Player Action] UN-AIMING WEAPON: [" + weapon.name + "]");
+            FADebug.Log(FADebug.LogLevel.INFO, "[Player Action] UN-AIMING WEAPON: [" + weapon.name + "]");
             weapon.CancelAim();
         }
     }
@@ -61,14 +61,15 @@ public class WeaponController : MonoBehaviour
     {
         foreach(Weapon weapon in activeWeapons)
         {
-            Debug.Log("[Player Action] FIRING WEAPON: [" + weapon.name + "]");
+            string logMessage = string.Format("[Player Action] FIRING WEAPON: [{0}]", weapon.name);
+            FADebug.Log(FADebug.LogLevel.INFO, logMessage);
             weapon.Fire();
         }
     }
 
     public void CancelFire() {
         foreach (Weapon weapon in activeWeapons) {
-            Debug.Log("[Player Action] CEASE-FIRING WEAPON: [" + weapon.name + "]");
+            FADebug.Log(FADebug.LogLevel.INFO, "[Player Action] CEASE-FIRING WEAPON: [" + weapon.name + "]");
             weapon.CancelFire();
         }
     }

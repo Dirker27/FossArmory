@@ -20,15 +20,15 @@ public class EquipmentController : MonoBehaviour
     void Start()
     {
         if (!TryGetComponent<EquipableInventory>(out equipableInventory)) {
-            Debug.LogError("Missing Required Component: Equipable Inventory");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Equipable Inventory");
         }
 
         if (!TryGetComponent<WeaponController>(out weaponController)) {
-            Debug.LogError("Missing Required Component: Weapon Controller");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Weapon Controller");
         }
 
         if (!TryGetComponent<Loadout>(out loadout)) {
-            Debug.LogError("Missing Required Component: Loadout");
+            FADebug.Log(FADebug.LogLevel.ERROR, "Missing Required Component: Loadout");
         }
 
         InstantiateLoadout();
@@ -81,7 +81,7 @@ public class EquipmentController : MonoBehaviour
     }
 
     public void WeaponSwap() {
-        Debug.Log("Swapping Weapons...");
+        FADebug.Log(FADebug.LogLevel.INFO, "Swapping Weapons...");
 
         int nextSlot = ((int)activeEquipmentSlot) + 1 % 5;
 
@@ -90,41 +90,41 @@ public class EquipmentController : MonoBehaviour
     }
 
     public void EquipmentSwap() {
-        Debug.Log("Swapping Equipment...");
+        FADebug.Log(FADebug.LogLevel.INFO, "Swapping Equipment...");
     }
 
     private void InstantiateLoadout() {
         if (loadout.primaryWeapon) {
             if (!loadout.primaryWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Primary Weapon [" + loadout.primaryWeapon.name + "]");
+                FADebug.Log(FADebug.LogLevel.INFO, "Instantiating Primary Weapon [" + loadout.primaryWeapon.name + "]");
                 loadout.primaryWeapon = GameObject.Instantiate(loadout.primaryWeapon, transform);
             }
         }
 
         if (loadout.secondaryWeapon) {
             if (!loadout.secondaryWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Secondary Weapon [" + loadout.secondaryWeapon.name + "]");
+                FADebug.Log(FADebug.LogLevel.INFO, "Instantiating Secondary Weapon [" + loadout.secondaryWeapon.name + "]");
                 loadout.secondaryWeapon = GameObject.Instantiate(loadout.secondaryWeapon, transform);
             }
         }
 
         if (loadout.tertiaryWeapon) {
             if (!loadout.tertiaryWeapon.isActiveAndEnabled) {
-                Debug.Log("Instantiating Back Weapon [" + loadout.tertiaryWeapon.name + "]");
+                FADebug.Log(FADebug.LogLevel.INFO, "Instantiating Back Weapon [" + loadout.tertiaryWeapon.name + "]");
                 loadout.tertiaryWeapon = GameObject.Instantiate(loadout.tertiaryWeapon, transform);
             }
         }
 
         if (loadout.tacticalThrowable) {
             if (!loadout.tacticalThrowable.isActiveAndEnabled) {
-                Debug.Log("Instantiating Tactical Equipment [" + loadout.tacticalThrowable.name + "]");
+                FADebug.Log(FADebug.LogLevel.INFO, "Instantiating Tactical Equipment [" + loadout.tacticalThrowable.name + "]");
                 loadout.tacticalThrowable = GameObject.Instantiate(loadout.tacticalThrowable, transform);
             }
         }
 
         if (loadout.lethalThrowable) {
             if (!loadout.lethalThrowable.isActiveAndEnabled) {
-                Debug.Log("Instantiating LethalEquipment [" + loadout.lethalThrowable.name + "]");
+                FADebug.Log(FADebug.LogLevel.INFO, "Instantiating LethalEquipment [" + loadout.lethalThrowable.name + "]");
                 loadout.lethalThrowable = GameObject.Instantiate(loadout.lethalThrowable, transform);
             }
         }
@@ -160,10 +160,12 @@ public class EquipmentController : MonoBehaviour
     private void EquipAndArm(EquipmentSlot equipmentSlot) {
         Weapon weapon = loadout.GetWeaponFromEquipmentSlot(equipmentSlot);
 
-        equipableInventory.EquipToPrimaryWeaponHand(weapon);
-        weaponController.activeWeapons.Add(weapon);
-        activeEquipmentSlot = equipmentSlot;
+        if (weapon) {
+            equipableInventory.EquipToPrimaryWeaponHand(weapon);
+            weaponController.activeWeapons.Add(weapon);
+            activeEquipmentSlot = equipmentSlot;
 
-        weapon.Equip();
+            weapon.Equip();
+        }
     }
 }

@@ -15,20 +15,25 @@ public class GameManager : MonoBehaviour
     private static GameObject mainCamera;
     private static GarbageCollector garbageCollector;
     private static PlayerController playerController;
+    private static UserInterfaceController userInterfaceController;
 
     private void Awake() {
         garbageCollector = GetComponentInChildren<GarbageCollector>();
         if (!garbageCollector) {
-            Debug.LogError("MISSING REQUIRED COMPONENT: Garbage Collector");
+            FADebug.Log(FADebug.LogLevel.ERROR, "MISSING REQUIRED COMPONENT: Garbage Collector");
         }
 
         if (!TryGetComponent<PlayerController>(out playerController)) {
-            Debug.LogError("MISSING REQUIRED COMPONENT: Player Controller");
+            FADebug.Log(FADebug.LogLevel.ERROR, "MISSING REQUIRED COMPONENT: Player Controller");
+        }
+
+        if (!TryGetComponent<UserInterfaceController>(out userInterfaceController)) {
+            FADebug.Log(FADebug.LogLevel.ERROR, "MISSING REQUIRED COMPONENT: UI Controller");
         }
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         if (!mainCamera) {
-            Debug.LogError("MISSING REQUIRED COMPONENT: Main Camera");
+            FADebug.Log(FADebug.LogLevel.ERROR, "MISSING REQUIRED COMPONENT: Main Camera");
         }
     }
 
@@ -36,6 +41,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        FADebug.SetLogLevel(FADebug.LogLevel.DEBUG);
     }
 
     void Update()
@@ -51,6 +58,10 @@ public class GameManager : MonoBehaviour
 
     public static PlayerController GetPlayerController() {
         return playerController;
+    }
+
+    public static UserInterfaceController GetUserInterfaceController() {
+        return userInterfaceController;
     }
 
     public static GarbageCollector GetGarbageCollector() {

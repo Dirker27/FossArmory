@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Represents the top-level point-of-entry for Player Input.
+ * 
+ * Downstream actors and pawns are "possessed" and wired into player input event
+ *   callbacks via <see cref="InputDelegate"/>
+ */
 public class PlayerController : MonoBehaviour
 {
     public Pawn activePawn;
 
     private static FA_InputActions inputActions;
     private InputDelegate inputDelegate;
+
     private enum InputMode {
         UI,
         Gameplay
@@ -34,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (activePawn) {
             PosessPawn(activePawn);
         } else {
-            Debug.Log("No initial player pawn set.");
+            FADebug.Log(FADebug.LogLevel.INFO, "No initial player pawn set.");
         }
         PosessPawn(activePawn);
 

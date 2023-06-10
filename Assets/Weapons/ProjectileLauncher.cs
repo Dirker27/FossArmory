@@ -45,7 +45,7 @@ public class ProjectileLauncher : Weapon
 
         WeaponAim weaponAim = null;
         if (launchPoint.TryGetComponent<WeaponAim>(out weaponAim)) {
-            Debug.Log(String.Format("[{0}] Enabling Weapon Aim.", name));
+            FADebug.Log(FADebug.LogLevel.INFO, String.Format("[{0}] Enabling Weapon Aim.", name));
             weaponAim.SetTargetLockEnabled(true);
         }
     }
@@ -55,7 +55,7 @@ public class ProjectileLauncher : Weapon
         
         WeaponAim weaponAim = null;
         if (launchPoint.TryGetComponent<WeaponAim>(out weaponAim)) {
-            Debug.Log(String.Format("[{0}] Disabling Weapon Aim.", name));
+            FADebug.Log(FADebug.LogLevel.INFO, String.Format("[{0}] Disabling Weapon Aim.", name));
             weaponAim.SetTargetLockEnabled(false);
         }
     }
