@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5556209542973136708}
   - component: {fileID: 4066496231568056390}
   m_Layer: 0
-  m_Name: GarbageCollection
+  m_Name: GarbageCollector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 9152504409005402012}
   - component: {fileID: 7809177728367374417}
   - component: {fileID: 3272675806209511809}
+  - component: {fileID: 5337300369878498437}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -232,6 +233,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 39fee00a-557b-49e2-9a97-be9c6f11fc55
     m_ActionName: Player/Posess[/Keyboard/x]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2221abdc-c3d1-40e8-a76b-32ea2c081cea
+    m_ActionName: Player/EquipPrimary[/Keyboard/1]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f5936c80-bd81-4ba9-9c3a-cb2b354807b8
+    m_ActionName: Player/EquipSecondary[/Keyboard/2]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d01a501b-82fc-4893-b2b3-931ec741911d
+    m_ActionName: Player/EquipTertiary[/Keyboard/3]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -250,8 +263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeScale: 1
-  garbageCollector: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!114 &3272675806209511809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +276,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activePawn: {fileID: 0}
+--- !u!114 &5337300369878498437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798670490521720279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eeaefa60d811b634783a49b5f885a652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consoleText: {fileID: 0}
+  pawnText: {fileID: 0}
+  weaponText: {fileID: 0}

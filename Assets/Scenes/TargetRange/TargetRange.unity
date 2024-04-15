@@ -2341,26 +2341,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205285765}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &205473084 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2798670490521720279, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-  m_PrefabInstance: {fileID: 7759856862520061595}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &205473091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205473084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeaefa60d811b634783a49b5f885a652, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  consoleText: {fileID: 1337778974}
-  pawnText: {fileID: 735387263}
-  weaponText: {fileID: 1295171397}
 --- !u!1001 &208525732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23658,25 +23638,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1976314639461841429, guid: 5a7773c92e765734283348960aea21ec, type: 3}
-      propertyPath: m_FontData.m_MinSize
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1976314639461841429, guid: 5a7773c92e765734283348960aea21ec, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1976314639461841429, guid: 5a7773c92e765734283348960aea21ec, type: 3}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3521665289593302908, guid: 5a7773c92e765734283348960aea21ec, type: 3}
       propertyPath: m_Name
       value: UI Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 6589524877054573692, guid: 5a7773c92e765734283348960aea21ec, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 302.13
       objectReference: {fileID: 0}
     - target: {fileID: 8930339166585278297, guid: 5a7773c92e765734283348960aea21ec, type: 3}
       propertyPath: m_Pivot.x
@@ -24108,10 +24072,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1024483985595314895, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_Name
-      value: GarbageCollector
-      objectReference: {fileID: 0}
     - target: {fileID: 2267788608252706753, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -24160,39 +24120,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[22].m_ActionId
-      value: 2221abdc-c3d1-40e8-a76b-32ea2c081cea
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[23].m_ActionId
-      value: f5936c80-bd81-4ba9-9c3a-cb2b354807b8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[24].m_ActionId
-      value: d01a501b-82fc-4893-b2b3-931ec741911d
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[22].m_ActionName
-      value: Player/EquipPrimary[/Keyboard/1]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[23].m_ActionName
-      value: Player/EquipSecondary[/Keyboard/2]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[24].m_ActionName
-      value: Player/EquipTertiary[/Keyboard/3]
-      objectReference: {fileID: 0}
+    - target: {fileID: 5337300369878498437, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
+      propertyPath: pawnText
+      value: 
+      objectReference: {fileID: 735387263}
+    - target: {fileID: 5337300369878498437, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
+      propertyPath: weaponText
+      value: 
+      objectReference: {fileID: 1295171397}
+    - target: {fileID: 5337300369878498437, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
+      propertyPath: consoleText
+      value: 
+      objectReference: {fileID: 1337778974}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2798670490521720279, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 205473091}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}

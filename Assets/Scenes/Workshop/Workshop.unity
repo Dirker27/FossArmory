@@ -1745,26 +1745,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
-      value: a34da084-fb99-40b8-b910-50bf300afaa6
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionId
-      value: 7b737b4d-48d1-4fa3-8d49-3190f69914ce
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
-      value: Player/Ready[/Keyboard/r]
-      objectReference: {fileID: 0}
-    - target: {fileID: 9152504409005402012, guid: 4c30ea46c8c8563459b6f8c9192899bb, type: 3}
-      propertyPath: m_ActionEvents.Array.data[16].m_ActionName
-      value: Player/Aim[/Mouse/rightButton]
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
